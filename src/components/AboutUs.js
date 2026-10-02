@@ -1,70 +1,42 @@
 import React from "react";
-import { IoIosCheckmarkCircle } from "react-icons/io";
+import { about } from "../data";
+import Mark from "../assets/brand/mark.png";
+import SectionHeading from "./SectionHeading";
 
-const AboutUs = () => {
-	const values = [
-		{
-			title: "Quality First",
-			description: "We ensure long-lasting products with premium materials.",
-		},
-		{
-			title: "Customer-Centered",
-			description: "Every design is inspired by your lifestyle and needs.",
-		},
-		{
-			title: "Innovation",
-			description: "We combine traditional craftsmanship with modern trends.",
-		},
-		{
-			title: "Sustainability",
-			description: "Eco-friendly practices are at the heart of what we do.",
-		},
-		{
-			title: "Trust & Integrity",
-			description: "We build strong relationships based on honesty and reliability.",
-		},
-	];
-
-	return (
-		<section id="about" className="section bg-gray-50">
-			<div className="container mx-auto">
-				<div className="grid lg:grid-cols-2 gap-12 items-center">
-					<div>
-						<h2 className="h2 mb-6">Our Mission</h2>
-						<p className="text-lg text-gray-600 mb-8">
-							At Sol Shalom Trading, our mission is to transform every home and workspace 
-							with furniture that blends style, comfort, and durability.
-						</p>
-						<h3 className="h3 mb-6">Our Values</h3>
-						<div className="space-y-4">
-							{values.map((value, index) => (
-								<div key={index} className="flex items-start gap-3">
-									<IoIosCheckmarkCircle className="text-accent text-xl mt-1" />
-									<div>
-										<h4 className="font-semibold text-gray-800 mb-1">
-											{value.title}
-										</h4>
-										<p className="text-gray-600">{value.description}</p>
-									</div>
-								</div>
-							))}
-						</div>
-					</div>
-					<div>
-						<h3 className="h3 mb-4">About Us</h3>
-						<p className="text-gray-600 mb-4">
-							Sol Shalom Trading is one of Ethiopia's leading furniture brands, 
-							specializing in custom-designed and ready-made furniture.
-						</p>
-						<p className="text-gray-600">
-							Our commitment is to bring world-class quality while embracing local 
-							taste and lifestyle.
-						</p>
-					</div>
+const AboutUs = () => (
+	<section id='about' className='section bg-brand-tint'>
+		<div className='container mx-auto grid lg:grid-cols-2 gap-10 lg:gap-16 items-center'>
+			<div className='relative order-2 lg:order-1'>
+				<div className='aspect-[4/3] rounded-md overflow-hidden bg-card'>
+					<img src={about.image} alt={about.imageAlt} loading='lazy' className='w-full h-full object-cover' />
+				</div>
+				<div className='hidden sm:flex absolute -bottom-6 -right-4 lg:-right-8 items-center gap-x-3 bg-white rounded-md shadow-[0_8px_24px_rgba(26,43,44,0.1)] px-5 py-4'>
+					<img src={Mark} alt='' className='w-10' />
+					<span className='font-display text-lg font-semibold uppercase tracking-wider text-ink leading-tight'>
+						Shalom
+						<span className='block text-xs font-primary normal-case tracking-normal font-normal text-ink-soft'>
+							means peace
+						</span>
+					</span>
 				</div>
 			</div>
-		</section>
-	);
-};
 
-export default AboutUs; 
+			<div className='order-1 lg:order-2'>
+				<SectionHeading eyebrow='About us' title={about.title} />
+				<p className='-mt-4 text-lg text-ink'>{about.intro}</p>
+				<p className='mt-4 text-ink-soft'>{about.body}</p>
+
+				<div className='mt-8 grid sm:grid-cols-2 gap-4'>
+					{[about.vision, about.mission].map((item) => (
+						<div key={item.title} className='bg-white rounded-md p-5 border-t-2 border-brand'>
+							<h3 className='text-lg font-semibold text-ink'>{item.title}</h3>
+							<p className='mt-2 text-sm text-ink-soft'>{item.text}</p>
+						</div>
+					))}
+				</div>
+			</div>
+		</div>
+	</section>
+);
+
+export default AboutUs;

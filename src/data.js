@@ -1,364 +1,106 @@
-// import icons
-import {
-	IoMdAddCircle,
-	IoIosCheckmarkCircle,
-	IoIosArrowRoundForward,
-} from "react-icons/io";
-
-// import images
-import Product1Img from "./assets/images/products/product-1.png";
-import Product2Img from "./assets/images/products/product-2.png";
-import Product3Img from "./assets/images/products/product-3.png";
-import Product4Img from "./assets/images/products/product-4.png";
-import Product5Img from "./assets/images/products/product-5.png";
-import Product6Img from "./assets/images/products/product-6.png";
-import Product7Img from "./assets/images/products/product-7.png";
-import Product8Img from "./assets/images/products/product-8.png";
-import Product9Img from "./assets/images/products/product-9.png";
-import Product10Img from "./assets/images/products/product-10.png";
-import TestimonialImg from "./assets/images/testimonial.png";
-import Avatar1Img from "./assets/images/avatar-1.png";
-import Avatar2Img from "./assets/images/avatar-2.png";
-import Avatar3Img from "./assets/images/avatar-3.png";
-
-// import new Sol Shalom Trading images
-import PhotoKitchen1 from "./assets/images/kitchen-cabinet-1.jpg";
-import PhotoKitchen2 from "./assets/images/kitchen-cabinet-2.jpg";
-import PhotoBedroom from "./assets/images/bedroom-set.jpg";
-import PhotoDining from "./assets/images/dining-set.jpg";
-import PhotoKitchen3 from "./assets/images/kitchen-u-shape.jpg";
-import PhotoDoors from "./assets/images/wooden-doors.jpg";
-import PhotoEntrance from "./assets/images/entrance-door.jpg";
-
-// import new furniture images
-import ModernSofaSet from "./assets/images/modern-sofa-set.jpg";
-import LuxuryOfficeDesk from "./assets/images/luxury-office-desk.jpg";
-import ElegantCoffeeTable from "./assets/images/elegant-coffee-table.jpg";
-import ContemporaryStorageUnit from "./assets/images/contemporary-storage-unit.jpg";
-import ModernDiningChair from "./assets/images/modern-dining-chair.jpg";
+// Site copy for Sol Shalom Trading. Products live in products.js, business details in company.js.
+import { products, categories } from "./products";
+import company from "./company";
 
 export const navigation = [
-	{
-		name: "home",
-		href: "#home",
-	},
-	{
-		name: "about",
-		href: "#about",
-	},
-	{
-		name: "showcase",
-		href: "#showcase",
-	},
-	{
-		name: "products",
-		href: "#products",
-	},
-	{
-		name: "contact",
-		href: "#contact",
-	},
+	{ name: "home", href: "#home" },
+	{ name: "products", href: "#products" },
+	{ name: "about", href: "#about" },
+	{ name: "why us", href: "#why-us" },
+	{ name: "contact", href: "#contact" },
 ];
 
 export const hero = {
-	title: "Transform Your Space with Sol Shalom Trading",
+	eyebrow: `Office furniture · Since ${company.since}`,
+	title: "Office furniture built for long working days",
 	subtitle:
-		"At Sol Shalom Trading, we blend style, comfort, and durability to make every space unique, functional, and welcoming. From elegant sofas to stylish kitchen cabinets, we deliver world-class quality that embraces local taste and lifestyle.",
-	buttonText: "Explore Collection",
-	backgroundImage: PhotoKitchen1, // Using the modern kitchen image
+		"Ergonomic chairs, managerial desks, conference tables and storage. Imported, checked and supplied by Sol Shalom Trading.",
+	image: "/products/q8-1.jpg",
+	featured: "q8",
 };
 
 export const stats = [
-	{
-		value: "15+",
-		text: "Years Experience",
-	},
-	{
-		value: "1",
-		text: "Leading Brand in Ethiopia",
-	},
-	{
-		value: "1000+",
-		text: "Happy Customers",
-	},
-	{
-		value: "500+",
-		text: "Furniture Designs",
-	},
+	{ value: `${new Date().getFullYear() - company.since}+`, label: "Years supplying offices" },
+	{ value: `${Math.floor(products.length / 10) * 10}+`, label: "Furniture models" },
+	{ value: String(categories.length), label: "Product categories" },
 ];
 
-export const features = {
-	image: <PhotoKitchen2 />,
-	title: "Quality First - Premium Materials & Craftsmanship",
-	subtitle:
-		"At Sol Shalom Trading, we ensure long-lasting products with premium materials. Every piece combines traditional craftsmanship with modern design trends to create furniture that stands the test of time.",
-	buttonText: "Learn More",
+// TODO(client): confirm or replace the vision and mission wording.
+export const about = {
+	title: "Peace of mind for every workplace",
+	intro:
+		"Shalom means peace. Since 2014, Sol Shalom Trading has supplied offices, banks, schools and businesses with furniture that people can sit at, work at and rely on every day. That is the peace we try to bring to a workplace.",
+	body:
+		"We import our chairs, desks, conference tables and storage from trusted manufacturers and check every model before it reaches our customers. You can furnish one desk or a full floor from a single supplier, with clear model codes and specifications so you know exactly what you are ordering.",
+	vision: {
+		title: "Our vision",
+		text: "To be the office furniture supplier that businesses trust first: known for comfort, durability and honest service.",
+	},
+	mission: {
+		title: "Our mission",
+		text: "To make well-built, ergonomic office furniture easy to choose and fairly priced, and to stand behind every piece we supply.",
+	},
+	image: "/products/yc48-1.jpg",
+	imageAlt: "Conference table with mesh chairs in a meeting room",
+};
+
+export const whyUs = {
+	title: "Why choose Sol Shalom",
+	subtitle: "What customers get when they furnish their office with us.",
 	items: [
 		{
-			icon: <IoIosCheckmarkCircle />,
-			title: "Custom Design Services",
-			subtitle:
-				"Personalized furniture solutions tailored to your lifestyle and space requirements, ensuring perfect fit and functionality.",
+			icon: "quality",
+			title: "Built to last",
+			text: "High-pressure laminate desks, steel frames and tested chair mechanisms. Every model is chosen for daily use.",
 		},
 		{
-			icon: <IoIosCheckmarkCircle />,
-			title: "Eco-Friendly Practices",
-			subtitle:
-				"Sustainability is at the heart of what we do, using eco-friendly materials and practices to protect our environment.",
-		},
-	],
-	feature2: {
-		image: <PhotoBedroom />,
-		title: "Ethiopia's Leading Furniture Brand",
-		subtitle:
-			"Sol Shalom Trading specializes in custom-designed and ready-made furniture for homes, offices, and commercial spaces. From elegant sofas and dining sets to stylish kitchen cabinets and workstations, we deliver products that combine creativity, craftsmanship, and comfort.",
-	},
-};
-
-export const newInStore = {
-	title: "New In Store Now",
-	subtitle: "Get the latest items immediately with promo prices",
-	link: "Check all",
-	icon: <IoIosArrowRoundForward />,
-	products: [
-		{
-			name: "Master Bedroom Collection",
-			image: <PhotoKitchen3 />,
+			icon: "ergonomic",
+			title: "Ergonomics you can feel",
+			text: "Adjustable lumbar support, synchronised tilt and breathable mesh help people stay comfortable through the day.",
 		},
 		{
-			name: "Artisan Wooden Doors",
-			image: <PhotoBedroom />,
+			icon: "range",
+			title: "One supplier, whole office",
+			text: "Executive and staff chairs, desks, conference tables, workstations, storage and sofas from a single order.",
 		},
 		{
-			name: "Modern Kitchen Suite",
-			image: <PhotoDining />,
-		},
-		{
-			name: "Premium Kitchen Design",
-			image: <PhotoDoors />,
-		},
-		{
-			name: "Child Bedroom Setup",
-			image: <ModernSofaSet />,
-		},
-		{
-			name: "Home Shelf",
-			image: <LuxuryOfficeDesk />,
-		},
-		{
-			name: "TV Setup",
-			image: <ElegantCoffeeTable />,
+			icon: "service",
+			title: "Straight answers, fast",
+			text: "Send a model code on WhatsApp or by phone and get price and availability, plus help choosing the right piece.",
 		},
 	],
 };
 
-export const products = {
-	title: "All Products",
+export const steps = {
+	title: "How to order",
+	items: [
+		{ title: "Browse", text: "Find the furniture you need and note its model code." },
+		{ title: "Ask", text: "Send the code and quantity on WhatsApp, by phone or through the form." },
+		{ title: "Confirm", text: "We reply with price and availability and help with any questions." },
+		{ title: "Receive", text: "We arrange delivery to your office at a time that suits you." },
+	],
+};
+
+// TODO(client): replace with real team and workshop/showroom photos.
+export const gallery = {
+	title: "Inside Sol Shalom",
+	subtitle: "A look at the furniture we supply, set up and ready for work.",
+	images: [
+		{ src: "/products/yc48-1.jpg", alt: "Conference table set up with mesh chairs" },
+		{ src: "/products/gt-240-120-1.jpg", alt: "Four-person partition workstation" },
+		{ src: "/products/sofa7-1.jpg", alt: "Leather office sofa set" },
+		{ src: "/products/mt-200-1.jpg", alt: "Managerial desk with storage cabinet" },
+		{ src: "/products/pt-240-1.jpg", alt: "L-shape workstation with partitions" },
+	],
+};
+
+export const contact = {
+	title: "Get in touch",
 	subtitle:
-		"The products we provide only for you as our service are selected from the best products with number 1 quality in the world",
-	pages: [
-		{
-			productList: [
-				{
-					image: <PhotoEntrance />,
-					icon: <IoMdAddCircle />,
-					name: "Grand Entrance Door",
-					price: 120000,
-					oldPrice: 135000,
-				},
-			{
-				image: <PhotoKitchen1 />,
-				icon: <IoMdAddCircle />,
-				name: "Elegant Dining Collection",
-				price: 45000,
-				oldPrice: 52000,
-			},
-			{
-				image: <PhotoBedroom />,
-				icon: <IoMdAddCircle />,
-				name: "Artisan Wooden Doors",
-				price: 85000,
-				oldPrice: 95000,
-			},
-			{
-				image: <PhotoDining />,
-				icon: <IoMdAddCircle />,
-				name: "Modern Kitchen Suite",
-				price: 65000,
-				oldPrice: 75000,
-			},
-			{
-				image: <PhotoDoors />,
-				icon: <IoMdAddCircle />,
-				name: "Premium Kitchen Design",
-				price: 35000,
-				oldPrice: 42000,
-			},
-			{
-				image: <PhotoKitchen2 />,
-				icon: <IoMdAddCircle />,
-				name: "Luxury Bookshelf Collection",
-				price: 78000,
-				oldPrice: 88000,
-			},
-			{
-				image: <PhotoKitchen3 />,
-				icon: <IoMdAddCircle />,
-				name: "Master Bedroom Collection",
-				price: 95000,
-				oldPrice: 110000,
-			},
-			{
-				image: <ModernSofaSet />,
-				icon: <IoMdAddCircle />,
-				name: "Child Bedroom Setup",
-				price: 85000,
-				oldPrice: 95000,
-			},
-			{
-				image: <LuxuryOfficeDesk />,
-				icon: <IoMdAddCircle />,
-				name: "Home Shelf",
-				price: 65000,
-				oldPrice: 75000,
-			},
-			{
-				image: <ElegantCoffeeTable />,
-				icon: <IoMdAddCircle />,
-				name: "TV Setup",
-				price: 35000,
-				oldPrice: 42000,
-			},
-			{
-				image: <ContemporaryStorageUnit />,
-				icon: <IoMdAddCircle />,
-				name: "Contemporary Storage Unit",
-				price: 45000,
-				oldPrice: 52000,
-			},
-			{
-				image: <ModernDiningChair />,
-				icon: <IoMdAddCircle />,
-				name: "Modern Dining Chair",
-				price: 25000,
-				oldPrice: 30000,
-			},
-			],
-		},
-		{
-			productList: [
-				{
-					image: <Product7Img />,
-					icon: <IoMdAddCircle />,
-					name: "XORA corner desk",
-					price: 320,
-					oldPrice: 325,
-				},
-				{
-					image: <Product8Img />,
-					icon: <IoMdAddCircle />,
-					name: "Black Forest Series Wood",
-					price: 225,
-					oldPrice: 240,
-				},
-				{
-					image: <Product9Img />,
-					icon: <IoMdAddCircle />,
-					name: "Papper Cupboard",
-					price: 105,
-					oldPrice: 120,
-				},
-				{
-					image: <Product10Img />,
-					icon: <IoMdAddCircle />,
-					name: "Ole Gundorse Spring",
-					price: 75,
-					oldPrice: 82,
-				},
-				{
-					image: <Product1Img />,
-					icon: <IoMdAddCircle />,
-					name: "Ceiling Light",
-					price: 75,
-					oldPrice: 82,
-				},
-				{
-					image: <Product2Img />,
-					icon: <IoMdAddCircle />,
-					name: "Wood Chair",
-					price: 50,
-					oldPrice: 70,
-				},
-				{
-					image: <Product3Img />,
-					icon: <IoMdAddCircle />,
-					name: "Paper Cupboard",
-					price: 105,
-					oldPrice: 120,
-				},
-				{
-					image: <Product4Img />,
-					icon: <IoMdAddCircle />,
-					name: "Ole Gundorse Spring",
-					price: 75,
-					oldPrice: 82,
-				},
-				{
-					image: <Product5Img />,
-					icon: <IoMdAddCircle />,
-					name: "Treos Seroes 911",
-					price: 200,
-					oldPrice: 210,
-				},
-				{
-					image: <Product6Img />,
-					icon: <IoMdAddCircle />,
-					name: "Multi bilderman slibber",
-					price: 45,
-					oldPrice: 50,
-				},
-			],
-		},
+		"Tell us what you need: a single chair or a full office. Mention the model codes if you have them and we will reply with price and availability.",
+	hours: [
+		["Monday – Friday", "8:30 AM – 5:30 PM"], // TBD
+		["Saturday", "8:30 AM – 12:30 PM"], // TBD
+		["Sunday", "Closed"],
 	],
-};
-
-export const testimonial = {
-	title: "What our customers say about Sol Shalom Trading",
-	image: <TestimonialImg />,
-	persons: [
-		{
-			avatar: <Avatar1Img />,
-			name: "Abebe Kebede",
-			occupation: "Homeowner, Addis Ababa",
-			message:
-				"Sol Shalom Trading transformed our living room with their elegant sofa design. The quality and craftsmanship exceeded our expectations. Highly recommended!",
-		},
-		{
-			avatar: <Avatar2Img />,
-			name: "Sara Haile",
-			occupation: "Office Manager, Bole",
-			message:
-				"We furnished our entire office with Sol Shalom Trading. Their custom workstations are both beautiful and functional. Professional service throughout!",
-		},
-		{
-			avatar: <Avatar3Img />,
-			name: "Michael Tesfaye",
-			occupation: "Restaurant Owner, Kazanchis",
-			message:
-				"The dining sets we ordered from Sol Shalom Trading are stunning. They perfectly capture the modern Ethiopian aesthetic while maintaining international quality standards.",
-		},
-	],
-};
-
-export const newsletter = {
-	title: "Stay Updated with Our Latest Collections",
-	subtitle: "Join our mailing list for exclusive offers and new arrivals",
-	placeholder: "Your email address",
-	buttonText: "Subscribe",
-	backgroundImage: PhotoDining, // Using the dining set image
-};
-
-export const footer = {
-	social: [],
-	copyright: "Sol Shalom Trading - All Rights Reserved.",
 };
