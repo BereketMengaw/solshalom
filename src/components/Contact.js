@@ -44,8 +44,10 @@ const Contact = () => {
 	};
 
 	const details = [
-		{ icon: <IoIosCall />, label: "Phone", value: company.phone, href: `tel:${company.phone.replace(/\s/g, "")}` },
-		{ icon: <FaWhatsapp />, label: "WhatsApp", value: `+${company.whatsapp}`, href: whatsappLink() },
+		{ icon: <IoIosCall />, label: "Phone", value: company.phones.map((n, i) => (
+			<span key={n} className="whitespace-nowrap">{i > 0 && " · "}{n}</span>
+		)), href: `tel:${company.phone.replace(/\s/g, "")}` },
+		{ icon: <FaWhatsapp />, label: "WhatsApp", value: `+${company.whatsapp.replace(/^(\d{3})(\d{2})(\d{3})(\d{4})$/, "$1 $2 $3 $4")}`, href: whatsappLink() },
 		{ icon: <IoIosMail />, label: "Email", value: company.email, href: `mailto:${company.email}` },
 		{ icon: <IoIosPin />, label: "Address", value: company.address, href: company.mapUrl || undefined },
 	];
@@ -70,7 +72,7 @@ const Contact = () => {
 										</span>
 										<span>
 											<span className='block text-xs uppercase tracking-wider text-ink-soft'>{d.label}</span>
-											<span className='block font-medium text-ink break-all'>{d.value}</span>
+											<span className='block font-medium text-ink break-words'>{d.value}</span>
 										</span>
 									</Tag>
 								</li>

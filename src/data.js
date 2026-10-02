@@ -25,13 +25,12 @@ export const stats = [
 	{ value: String(categories.length), label: "Product categories" },
 ];
 
-// TODO(client): confirm or replace the vision and mission wording.
 export const about = {
 	title: "Peace of mind for every workplace",
 	intro:
-		"Shalom means peace. Since 2014, Sol Shalom Trading has supplied offices, banks, schools and businesses with furniture that people can sit at, work at and rely on every day. That is the peace we try to bring to a workplace.",
+		"Sol Shalom Trading PLC is one of Ethiopia's leading importers and distributors of high-quality commercial and residential furniture. Since 2014 we have furnished banks, offices, airports, universities, NGOs and government offices, as well as hotels, stores and showrooms.",
 	body:
-		"We import our chairs, desks, conference tables and storage from trusted manufacturers and check every model before it reaches our customers. You can furnish one desk or a full floor from a single supplier, with clear model codes and specifications so you know exactly what you are ordering.",
+		"Our close relationships with European, Asian and American suppliers let us offer executive desks, ergonomic chairs, workstations, meeting-room furniture, reception counters, sofa sets and storage in MDF, melamine, steel and more, from a single desk to a full floor. Shalom means peace, and that is what we want every workplace to feel.",
 	vision: {
 		title: "Our vision",
 		text: "To be the office furniture supplier that businesses trust first: known for comfort, durability and honest service.",
@@ -99,8 +98,8 @@ export const contact = {
 	subtitle:
 		"Tell us what you need: a single chair or a full office. Mention the model codes if you have them and we will reply with price and availability.",
 	hours: [
-		["Monday – Friday", "8:30 AM – 5:30 PM"], // TBD
-		["Saturday", "8:30 AM – 12:30 PM"], // TBD
+		["Monday – Friday", "8:30 AM – 5:30 PM"],
+		["Saturday", "8:30 AM – 12:30 PM"],
 		["Sunday", "Closed"],
 	],
 };

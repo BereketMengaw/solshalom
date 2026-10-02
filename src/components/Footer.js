@@ -21,8 +21,8 @@ const Footer = () => {
 				<div>
 					<Wordmark light />
 					<p className='mt-5 max-w-xs text-sm leading-relaxed'>
-						Office chairs, desks, conference tables and storage for offices, banks and
-						schools.
+						Importer and distributor of office and commercial furniture in Ethiopia
+						since 2014.
 					</p>
 				</div>
 
