@@ -36,7 +36,7 @@ const ProductCard = ({ product }) => {
 		...product.features,
 	].slice(0, 3);
 	return (
-		<article className='group flex flex-col bg-white border border-line rounded-md overflow-hidden transition-[box-shadow,transform] duration-300 hover:-translate-y-1 hover:shadow-[0_14px_32px_rgba(26,43,44,0.10)] motion-reduce:transition-none motion-reduce:hover:translate-y-0'>
+		<article className='group relative flex flex-col bg-white border border-line rounded-md overflow-hidden transition-[box-shadow,transform] duration-300 hover:-translate-y-1 hover:shadow-[0_14px_32px_rgba(26,43,44,0.10)] motion-reduce:transition-none motion-reduce:hover:translate-y-0'>
 			<Link to={`/product/${product.id}`} className='flex flex-col flex-1'>
 				<div className='relative aspect-[4/5] bg-brand-tint overflow-hidden'>
 					<Blob className='absolute inset-[10%] w-[80%] h-[80%] text-white transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6 motion-reduce:transition-none' />
@@ -60,7 +60,7 @@ const ProductCard = ({ product }) => {
 						</div>
 					)}
 				</div>
-				<div className='p-4 flex-1'>
+				<div className='p-4 pr-14 flex-1'>
 					<h3 className='font-primary normal-case tracking-normal text-[15px] font-semibold text-ink leading-snug'>
 						{product.name}
 					</h3>
@@ -71,11 +71,11 @@ const ProductCard = ({ product }) => {
 				href={whatsappLink(productMessage(product))}
 				target='_blank'
 				rel='noreferrer'
-				className='mx-4 mb-4 flex items-center justify-center gap-x-2 border border-accent text-accent hover:bg-accent hover:text-white rounded py-2 text-sm font-medium transition-colors'
+				aria-label={`Contact us about ${product.name} (${product.code}) on WhatsApp`}
+				title='Contact us for this product'
+				className='absolute right-3 bottom-4 w-9 h-9 rounded-full bg-brand-tint text-accent hover:bg-accent hover:text-white flex items-center justify-center text-lg transition-colors'
 			>
-				<FaWhatsapp className='text-base shrink-0' />
-				<span className='sm:hidden'>Contact us</span>
-				<span className='hidden sm:inline'>Contact us for this product</span>
+				<FaWhatsapp />
 			</a>
 		</article>
 	);
