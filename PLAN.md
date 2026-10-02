@@ -24,6 +24,7 @@ Each slice gets its own commit. You review each one before the next starts.
 7. **Why Choose Us** and a **How it works** strip (pick, quote, delivery and setup).
 8. **Contact.** Phone, email, address and map, WhatsApp, and a working form (Formspree or Web3Forms free tier). Floating WhatsApp button.
 9. **Team / workshop photos** at the end, then deploy (Netlify or Vercel, free tier).
+   *Live:* https://solshalom.vercel.app (Vercel, misaletutors-projects team).
 
 ## Needed from the client
 - Phone, WhatsApp number, email, address/map pin, socials
