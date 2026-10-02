@@ -45,7 +45,7 @@ const Contact = () => {
 
 	const details = [
 		{ icon: <IoIosCall />, label: "Phone", value: company.phones.map((n, i) => (
-			<span key={n} className="whitespace-nowrap">{i > 0 && " · "}{n}</span>
+			<span key={n} className="block whitespace-nowrap">{n}</span>
 		)), href: `tel:${company.phone.replace(/\s/g, "")}` },
 		{ icon: <FaWhatsapp />, label: "WhatsApp", value: `+${company.whatsapp.replace(/^(\d{3})(\d{2})(\d{3})(\d{4})$/, "$1 $2 $3 $4")}`, href: whatsappLink() },
 		{ icon: <IoIosMail />, label: "Email", value: company.email, href: `mailto:${company.email}` },
@@ -54,7 +54,7 @@ const Contact = () => {
 
 	return (
 		<section id='contact' className='section bg-brand-tint'>
-			<div className='container mx-auto grid lg:grid-cols-[1fr_1.2fr] gap-10 lg:gap-16'>
+			<div className='container mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-10 lg:gap-16 [&>*]:min-w-0'>
 				<div>
 					<SectionHeading eyebrow='Contact us' title={contact.title} subtitle={contact.subtitle} />
 

@@ -13,7 +13,7 @@ const Hero = () => {
 	const featured = getProduct(hero.featured);
 	return (
 		<section id='home' className='relative pt-20 bg-white overflow-hidden'>
-			<div className='container mx-auto grid lg:grid-cols-2 items-center gap-10 lg:gap-6 py-10 lg:py-16'>
+			<div className='container mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-10 lg:gap-6 py-10 lg:py-16'>
 				<div>
 					<p className='flex items-center gap-x-3 font-display text-sm font-semibold uppercase tracking-[0.2em] text-brand'>
 						<span className='w-8 h-px bg-current' />
@@ -53,9 +53,9 @@ const Hero = () => {
 				</div>
 
 				<div className='relative mx-auto w-full max-w-[520px] aspect-[600/560]'>
-					<Blob className='absolute inset-0 w-full h-full text-brand-aqua animate-[float_9s_ease-in-out_infinite] motion-reduce:animate-none' />
-					<Blob className='absolute -right-6 -top-4 w-24 h-24 text-brand/30 animate-[float_7s_ease-in-out_infinite_reverse] motion-reduce:animate-none' />
-					<img src={Mark} alt='' className='absolute left-2 top-6 w-14 opacity-80 animate-[float_6s_ease-in-out_infinite] motion-reduce:animate-none' />
+					<Blob className='absolute inset-0 w-full h-full text-brand-aqua lg:animate-[float_9s_ease-in-out_infinite] motion-reduce:animate-none' />
+					<Blob className='absolute right-0 -top-4 w-20 h-20 lg:-right-6 lg:w-24 lg:h-24 text-brand/30 lg:animate-[float_7s_ease-in-out_infinite_reverse] motion-reduce:animate-none' />
+					<img src={Mark} alt='' className='absolute left-2 top-6 w-14 opacity-80 lg:animate-[float_6s_ease-in-out_infinite] motion-reduce:animate-none' />
 					<img
 						src={hero.image}
 						alt={featured ? `${featured.name}, model ${featured.code}` : ""}

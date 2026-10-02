@@ -46,7 +46,7 @@ const ProductDetails = () => {
 				<span className='text-ink'>{product.code}</span>
 			</div>
 
-			<section className='container mx-auto grid lg:grid-cols-2 gap-8 lg:gap-14 pb-16'>
+			<section className='container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 pb-16'>
 				{/* Gallery */}
 				<div>
 					<div className='relative aspect-square bg-card rounded-md overflow-hidden'>

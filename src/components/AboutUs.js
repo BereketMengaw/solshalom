@@ -7,9 +7,9 @@ import Blob from "./Blob";
 
 const AboutUs = () => (
 	<section id='about' className='section bg-brand-tint'>
-		<div className='container mx-auto grid lg:grid-cols-2 gap-10 lg:gap-16 items-center'>
+		<div className='container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center'>
 			<Reveal className='relative order-2 lg:order-1'>
-				<Blob className='absolute -left-8 -top-8 w-40 h-40 text-brand-aqua/70' />
+				<Blob className='absolute -left-3 -top-4 w-28 h-28 lg:-left-8 lg:-top-8 lg:w-40 lg:h-40 text-brand-aqua/70' />
 				<div className='relative aspect-[4/3] rounded-md overflow-hidden bg-card'>
 					<img src={about.image} alt={about.imageAlt} loading='lazy' className='w-full h-full object-cover' />
 				</div>

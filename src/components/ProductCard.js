@@ -36,7 +36,7 @@ const ProductCard = ({ product }) => {
 		...product.features,
 	].slice(0, 3);
 	return (
-		<article className='group relative flex flex-col bg-white border border-line rounded-md overflow-hidden transition-[box-shadow,transform] duration-300 hover:-translate-y-1 hover:shadow-[0_14px_32px_rgba(26,43,44,0.10)] motion-reduce:transition-none motion-reduce:hover:translate-y-0'>
+		<article className='group relative flex flex-col bg-white border border-line rounded-md overflow-hidden transition-[box-shadow,transform] duration-300 lg:hover:-translate-y-1 hover:shadow-[0_14px_32px_rgba(26,43,44,0.10)] motion-reduce:transition-none motion-reduce:hover:translate-y-0'>
 			<Link to={`/product/${product.id}`} className='flex flex-col flex-1'>
 				<div className='relative aspect-[4/5] bg-brand-tint overflow-hidden'>
 					<Blob className='absolute inset-[10%] w-[80%] h-[80%] text-white transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6 motion-reduce:transition-none' />
