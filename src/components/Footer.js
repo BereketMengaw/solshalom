@@ -72,7 +72,12 @@ const Footer = () => {
 					)}
 				</div>
 			</div>
-			<div className='border-t border-white/10'>
+			<div className='container mx-auto overflow-hidden select-none' aria-hidden='true'>
+				<p className='font-display font-bold uppercase leading-[0.8] tracking-tight text-[19vw] xl:text-[248px] text-outline whitespace-nowrap -mb-[3vw] xl:-mb-10 opacity-60'>
+					Sol Shalom
+				</p>
+			</div>
+			<div className='relative border-t border-white/10 bg-ink'>
 				<div className='container mx-auto py-5 text-xs text-white/60'>
 					&copy; {year} {company.name}. All rights reserved.
 				</div>

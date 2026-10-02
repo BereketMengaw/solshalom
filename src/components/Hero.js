@@ -5,16 +5,9 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 import { hero, stats } from "../data";
 import { getProduct } from "../products";
 import { whatsappLink } from "../company";
-
-// Organic blob from the Sol Shalom brand mockups.
-const Blob = ({ className }) => (
-	<svg viewBox='0 0 600 560' className={className} aria-hidden='true'>
-		<path
-			fill='currentColor'
-			d='M318 18c92-6 186 34 232 112 44 76 40 178-6 256-46 80-136 140-232 158-98 18-196-12-252-86C6 386-10 284 22 196 54 106 132 34 220 22c33-4 66-2 98-4z'
-		/>
-	</svg>
-);
+import Blob from "./Blob";
+import CountUp from "./CountUp";
+import Mark from "../assets/brand/mark.png";
 
 const Hero = () => {
 	const featured = getProduct(hero.featured);
@@ -52,7 +45,7 @@ const Hero = () => {
 							<div key={s.label} className='flex flex-col'>
 								<dt className='order-2 text-xs sm:text-sm text-ink-soft mt-1'>{s.label}</dt>
 								<dd className='order-1 font-display text-3xl sm:text-4xl font-semibold text-ink -mt-0.5'>
-									{s.value}
+									<CountUp value={s.value} />
 								</dd>
 							</div>
 						))}
@@ -60,7 +53,9 @@ const Hero = () => {
 				</div>
 
 				<div className='relative mx-auto w-full max-w-[520px] aspect-[600/560]'>
-					<Blob className='absolute inset-0 w-full h-full text-brand-aqua' />
+					<Blob className='absolute inset-0 w-full h-full text-brand-aqua animate-[float_9s_ease-in-out_infinite] motion-reduce:animate-none' />
+					<Blob className='absolute -right-6 -top-4 w-24 h-24 text-brand/30 animate-[float_7s_ease-in-out_infinite_reverse] motion-reduce:animate-none' />
+					<img src={Mark} alt='' className='absolute left-2 top-6 w-14 opacity-80 animate-[float_6s_ease-in-out_infinite] motion-reduce:animate-none' />
 					<img
 						src={hero.image}
 						alt={featured ? `${featured.name}, model ${featured.code}` : ""}

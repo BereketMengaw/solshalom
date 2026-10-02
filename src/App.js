@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
+import Marquee from "./components/Marquee";
+import ShopByCategory from "./components/ShopByCategory";
 import Catalog, { CatalogPage } from "./components/Catalog";
 import AboutUs from "./components/AboutUs";
 import WhyChooseUs from "./components/WhyChooseUs";
@@ -31,6 +33,8 @@ function HomePage() {
 	return (
 		<main>
 			<Hero />
+			<Marquee />
+			<ShopByCategory />
 			<Catalog />
 			<AboutUs />
 			<WhyChooseUs />

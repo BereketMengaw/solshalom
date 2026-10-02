@@ -1,7 +1,8 @@
 import React from "react";
+import Reveal from "./Reveal";
 
 const SectionHeading = ({ eyebrow, title, subtitle, center = false, light = false }) => (
-	<div className={`mb-10 lg:mb-12 ${center ? "text-center mx-auto" : ""} max-w-2xl`}>
+	<Reveal className={`mb-10 lg:mb-12 ${center ? "text-center mx-auto" : ""} max-w-2xl`}>
 		{eyebrow && (
 			<p className={`flex items-center gap-x-3 font-display text-sm font-semibold uppercase tracking-[0.2em] mb-3 ${center ? "justify-center" : ""} ${light ? "text-brand-aqua" : "text-brand"}`}>
 				<span className='w-8 h-px bg-current' />
@@ -14,7 +15,7 @@ const SectionHeading = ({ eyebrow, title, subtitle, center = false, light = fals
 		{subtitle && (
 			<p className={`mt-4 text-base lg:text-lg ${light ? "text-white/75" : "text-ink-soft"}`}>{subtitle}</p>
 		)}
-	</div>
+	</Reveal>
 );
 
 export default SectionHeading;
