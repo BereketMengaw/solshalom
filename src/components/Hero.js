@@ -18,9 +18,9 @@ const Hero = () => {
 				{title}
 			</h1>
 			{/* Sub-Title */}
-			<h2 className='mb-[20px] sm:mb-[30px] max-w-[672px] mx-auto lg:mb-[65px] text-sm sm:text-base lg:text-xl opacity-80'>
+			<p className='mb-[20px] sm:mb-[30px] max-w-[672px] mx-auto lg:mb-[65px] text-sm sm:text-base lg:text-xl opacity-80'>
 				{subtitle}
-			</h2>
+			</p>
 			{/* button */}
 			<button className='bg-[var(--btn-light)] hover:bg-[var(--btn-light)] backdrop-blur-md p-2 px-6 sm:px-9 mb-6 sm:mb-8 lg:mb-[194px] rounded-md transition lg:px-[80px] lg:py-[16px] lg:text-xl text-sm sm:text-base'>
 				{buttonText}

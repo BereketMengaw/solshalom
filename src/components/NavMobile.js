@@ -2,17 +2,14 @@ import React from "react";
 import { navigation } from "../data";
 
 const NavMobile = ({ onNavClick, activeSection }) => {
-	const navItems = navigation.map((item, index) => {
-		const sectionId = item.href.replace('#', '');
-		const isActive = activeSection === sectionId;
+	const navItems = navigation.map((item) => {
+		const isActive = activeSection === item.href.replace("#", "");
 		return (
-			<li key={index}>
+			<li key={item.href}>
 				<button
 					onClick={() => onNavClick(item.href)}
-					className={`capitalize transition-all cursor-pointer ${
-						isActive 
-							? 'text-accent font-semibold border-b-2 border-accent' 
-							: 'text-black hover:text-accent hover:border-b hover:border-accent/70'
+					className={`font-display uppercase tracking-wider transition-colors ${
+						isActive ? "text-accent" : "text-ink hover:text-accent"
 					}`}
 				>
 					{item.name}
@@ -22,9 +19,17 @@ const NavMobile = ({ onNavClick, activeSection }) => {
 	});
 
 	return (
-		<nav className='bg-white w-full h-full shadow-2xl'>
-			<ul className='capitalize text-center h-full flex flex-col items-center justify-center gap-y-5 text-xl font-medium'>
+		<nav className='bg-white w-full h-full shadow-2xl border-t border-line'>
+			<ul className='h-full flex flex-col items-center justify-center gap-y-6 text-2xl font-medium'>
 				{navItems}
+				<li className='mt-4'>
+					<button
+						onClick={() => onNavClick("#contact")}
+						className='bg-accent hover:bg-accent-hover text-white font-display uppercase tracking-wider text-lg font-semibold px-6 py-3 rounded transition-colors'
+					>
+						Request a Quote
+					</button>
+				</li>
 			</ul>
 		</nav>
 	);

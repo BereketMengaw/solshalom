@@ -1,8 +1,5 @@
 // import icons
 import {
-	IoLogoYoutube,
-	IoLogoFacebook,
-	IoLogoInstagram,
 	IoMdAddCircle,
 	IoIosCheckmarkCircle,
 	IoIosArrowRoundForward,
@@ -24,14 +21,14 @@ import Avatar1Img from "./assets/images/avatar-1.png";
 import Avatar2Img from "./assets/images/avatar-2.png";
 import Avatar3Img from "./assets/images/avatar-3.png";
 
-// import new Pegasus Wood Work Products images
-import PegasusKitchen1 from "./assets/images/kitchen-cabinet-1.jpg";
-import PegasusKitchen2 from "./assets/images/kitchen-cabinet-2.jpg";
-import PegasusBedroom from "./assets/images/bedroom-set.jpg";
-import PegasusDining from "./assets/images/dining-set.jpg";
-import PegasusKitchen3 from "./assets/images/kitchen-u-shape.jpg";
-import PegasusDoors from "./assets/images/wooden-doors.jpg";
-import PegasusEntrance from "./assets/images/entrance-door.jpg";
+// import new Sol Shalom Trading images
+import PhotoKitchen1 from "./assets/images/kitchen-cabinet-1.jpg";
+import PhotoKitchen2 from "./assets/images/kitchen-cabinet-2.jpg";
+import PhotoBedroom from "./assets/images/bedroom-set.jpg";
+import PhotoDining from "./assets/images/dining-set.jpg";
+import PhotoKitchen3 from "./assets/images/kitchen-u-shape.jpg";
+import PhotoDoors from "./assets/images/wooden-doors.jpg";
+import PhotoEntrance from "./assets/images/entrance-door.jpg";
 
 // import new furniture images
 import ModernSofaSet from "./assets/images/modern-sofa-set.jpg";
@@ -64,11 +61,11 @@ export const navigation = [
 ];
 
 export const hero = {
-	title: "Transform Your Space with Pegasus Furniture",
+	title: "Transform Your Space with Sol Shalom Trading",
 	subtitle:
-		"At Pegasus Furniture, we blend style, comfort, and durability to make every space unique, functional, and welcoming. From elegant sofas to stylish kitchen cabinets, we deliver world-class quality that embraces local taste and lifestyle.",
+		"At Sol Shalom Trading, we blend style, comfort, and durability to make every space unique, functional, and welcoming. From elegant sofas to stylish kitchen cabinets, we deliver world-class quality that embraces local taste and lifestyle.",
 	buttonText: "Explore Collection",
-	backgroundImage: PegasusKitchen1, // Using the modern kitchen image
+	backgroundImage: PhotoKitchen1, // Using the modern kitchen image
 };
 
 export const stats = [
@@ -91,10 +88,10 @@ export const stats = [
 ];
 
 export const features = {
-	image: <PegasusKitchen2 />,
+	image: <PhotoKitchen2 />,
 	title: "Quality First - Premium Materials & Craftsmanship",
 	subtitle:
-		"At Pegasus Furniture, we ensure long-lasting products with premium materials. Every piece combines traditional craftsmanship with modern design trends to create furniture that stands the test of time.",
+		"At Sol Shalom Trading, we ensure long-lasting products with premium materials. Every piece combines traditional craftsmanship with modern design trends to create furniture that stands the test of time.",
 	buttonText: "Learn More",
 	items: [
 		{
@@ -111,10 +108,10 @@ export const features = {
 		},
 	],
 	feature2: {
-		image: <PegasusBedroom />,
+		image: <PhotoBedroom />,
 		title: "Ethiopia's Leading Furniture Brand",
 		subtitle:
-			"Pegasus Furniture specializes in custom-designed and ready-made furniture for homes, offices, and commercial spaces. From elegant sofas and dining sets to stylish kitchen cabinets and workstations, we deliver products that combine creativity, craftsmanship, and comfort.",
+			"Sol Shalom Trading specializes in custom-designed and ready-made furniture for homes, offices, and commercial spaces. From elegant sofas and dining sets to stylish kitchen cabinets and workstations, we deliver products that combine creativity, craftsmanship, and comfort.",
 	},
 };
 
@@ -126,19 +123,19 @@ export const newInStore = {
 	products: [
 		{
 			name: "Master Bedroom Collection",
-			image: <PegasusKitchen3 />,
+			image: <PhotoKitchen3 />,
 		},
 		{
 			name: "Artisan Wooden Doors",
-			image: <PegasusBedroom />,
+			image: <PhotoBedroom />,
 		},
 		{
 			name: "Modern Kitchen Suite",
-			image: <PegasusDining />,
+			image: <PhotoDining />,
 		},
 		{
 			name: "Premium Kitchen Design",
-			image: <PegasusDoors />,
+			image: <PhotoDoors />,
 		},
 		{
 			name: "Child Bedroom Setup",
@@ -163,49 +160,49 @@ export const products = {
 		{
 			productList: [
 				{
-					image: <PegasusEntrance />,
+					image: <PhotoEntrance />,
 					icon: <IoMdAddCircle />,
 					name: "Grand Entrance Door",
 					price: 120000,
 					oldPrice: 135000,
 				},
 			{
-				image: <PegasusKitchen1 />,
+				image: <PhotoKitchen1 />,
 				icon: <IoMdAddCircle />,
 				name: "Elegant Dining Collection",
 				price: 45000,
 				oldPrice: 52000,
 			},
 			{
-				image: <PegasusBedroom />,
+				image: <PhotoBedroom />,
 				icon: <IoMdAddCircle />,
 				name: "Artisan Wooden Doors",
 				price: 85000,
 				oldPrice: 95000,
 			},
 			{
-				image: <PegasusDining />,
+				image: <PhotoDining />,
 				icon: <IoMdAddCircle />,
 				name: "Modern Kitchen Suite",
 				price: 65000,
 				oldPrice: 75000,
 			},
 			{
-				image: <PegasusDoors />,
+				image: <PhotoDoors />,
 				icon: <IoMdAddCircle />,
 				name: "Premium Kitchen Design",
 				price: 35000,
 				oldPrice: 42000,
 			},
 			{
-				image: <PegasusKitchen2 />,
+				image: <PhotoKitchen2 />,
 				icon: <IoMdAddCircle />,
 				name: "Luxury Bookshelf Collection",
 				price: 78000,
 				oldPrice: 88000,
 			},
 			{
-				image: <PegasusKitchen3 />,
+				image: <PhotoKitchen3 />,
 				icon: <IoMdAddCircle />,
 				name: "Master Bedroom Collection",
 				price: 95000,
@@ -326,7 +323,7 @@ export const products = {
 };
 
 export const testimonial = {
-	title: "What our customers say about Pegasus Furniture",
+	title: "What our customers say about Sol Shalom Trading",
 	image: <TestimonialImg />,
 	persons: [
 		{
@@ -334,21 +331,21 @@ export const testimonial = {
 			name: "Abebe Kebede",
 			occupation: "Homeowner, Addis Ababa",
 			message:
-				"Pegasus Furniture transformed our living room with their elegant sofa design. The quality and craftsmanship exceeded our expectations. Highly recommended!",
+				"Sol Shalom Trading transformed our living room with their elegant sofa design. The quality and craftsmanship exceeded our expectations. Highly recommended!",
 		},
 		{
 			avatar: <Avatar2Img />,
 			name: "Sara Haile",
 			occupation: "Office Manager, Bole",
 			message:
-				"We furnished our entire office with Pegasus Furniture. Their custom workstations are both beautiful and functional. Professional service throughout!",
+				"We furnished our entire office with Sol Shalom Trading. Their custom workstations are both beautiful and functional. Professional service throughout!",
 		},
 		{
 			avatar: <Avatar3Img />,
 			name: "Michael Tesfaye",
 			occupation: "Restaurant Owner, Kazanchis",
 			message:
-				"The dining sets we ordered from Pegasus Furniture are stunning. They perfectly capture the modern Ethiopian aesthetic while maintaining international quality standards.",
+				"The dining sets we ordered from Sol Shalom Trading are stunning. They perfectly capture the modern Ethiopian aesthetic while maintaining international quality standards.",
 		},
 	],
 };
@@ -358,23 +355,10 @@ export const newsletter = {
 	subtitle: "Join our mailing list for exclusive offers and new arrivals",
 	placeholder: "Your email address",
 	buttonText: "Subscribe",
-	backgroundImage: PegasusDining, // Using the dining set image
+	backgroundImage: PhotoDining, // Using the dining set image
 };
 
 export const footer = {
-	social: [
-		{
-			icon: <IoLogoFacebook />,
-			href: "https://www.facebook.com/share/19RoGrxjoZ/?mibextid=wwXIfr",
-		},
-		{
-			icon: <IoLogoInstagram />,
-			href: "https://www.instagram.com/pegasus_furniture_ethiopia?igsh=ODRjYzYycTlwbzIz&utm_source=qr",
-		},
-		{
-			icon: <IoLogoYoutube />,
-			href: "https://www.tiktok.com/@pegasus.wood.work?_t=ZM-8zJYdGQDcuO&_r=1",
-		},
-	],
-	copyright: "Pegasus Furniture 2024 - All Rights Reserved. | Addis Ababa, Ethiopia",
+	social: [],
+	copyright: "Sol Shalom Trading - All Rights Reserved.",
 };

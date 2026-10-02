@@ -3,10 +3,8 @@ module.exports = {
 	content: ["./src/**/*.{js,jsx,ts,tsx}"],
 	theme: {
 		container: {
-			padding: {
-				DEFAULT: "1.5rem",
-				// lg: '3rem',
-			},
+			center: true,
+			padding: { DEFAULT: "1rem", sm: "1.5rem", lg: "2rem" },
 		},
 		screens: {
 			sm: "640px",
@@ -16,11 +14,17 @@ module.exports = {
 		},
 		extend: {
 			fontFamily: {
-				primary: ["Saira", "sans-serif"],
+				primary: ["Inter", "sans-serif"],
+				display: ['"Barlow Condensed"', "sans-serif"],
 			},
 			colors: {
-				primary: "#23262F",
-				accent: "#286F6C",
+				// Sol Shalom Trading brand
+				ink: { DEFAULT: "#1A2B2C", soft: "#4A5A5B" },
+				primary: "#1A2B2C",
+				accent: { DEFAULT: "#1F7F82", hover: "#17676A" },
+				brand: { DEFAULT: "#3FA9AC", aqua: "#94D4D8", tint: "#EEF8F8" },
+				card: "#F4F7F7",
+				line: "#DDE6E6",
 				grey: {
 					DEFAULT: "#919297",
 					1: "#D9D9D9",
@@ -28,7 +32,6 @@ module.exports = {
 					3: "#F5F5F5",
 				},
 				white: "#fff",
-				pink: "pink",
 			},
 			backgroundImage: {
 				hero: 'url("/src/assets/images/hero-bg.png")',

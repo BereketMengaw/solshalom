@@ -1,31 +1,81 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
-import Logo from "../assets/images/MainLogo.png";
-import { footer } from "../data";
+import { FaFacebookF, FaInstagram, FaTelegramPlane, FaTiktok } from "react-icons/fa";
+import { Wordmark } from "./Header";
+import company from "../company";
+import { navigation } from "../data";
+
+const socialIcons = {
+	facebook: <FaFacebookF />,
+	instagram: <FaInstagram />,
+	telegram: <FaTelegramPlane />,
+	tiktok: <FaTiktok />,
+};
 
 const Footer = () => {
-	const { social, copyright } = footer;
-	const socialLink = social.map((item, index) => {
-		const { icon, href } = item;
-		return (
-			<div
-				key={index}
-				className='w-12 h-12 text-white text-2xl rounded-full bg-gray-700 hover:bg-accent flex justify-center items-center transition'
-			>
-				<a href={href}>{icon}</a>
-			</div>
-		);
-	});
+	const socials = Object.entries(company.social).filter(([, url]) => url);
+	const year = new Date().getFullYear();
+
 	return (
-		<footer className='section bg-primary'>
-			<div className='container mx-auto'>
-				<div className='flex flex-col lg:flex-row justify-between border-b border-opacity-75 border-gray-700 pb-7 lg:pb-14 mb-14'>
-					<a href='#' className='mb-6 lg:mb-0'>
-						<img src={Logo} alt='Pegasus Wood Work Products Logo' className='h-16 lg:h-20 object-contain' />
-					</a>
-					<div className='flex gap-x-4'>{socialLink}</div>
+		<footer className='bg-ink text-white/80'>
+			<div className='container mx-auto py-14 grid gap-10 md:grid-cols-3'>
+				<div>
+					<Wordmark light />
+					<p className='mt-5 max-w-xs text-sm leading-relaxed'>
+						Office chairs, desks, conference tables and storage for offices, banks and
+						schools.
+					</p>
 				</div>
-				<div className='text-white text-center'>&copy; {copyright}</div>
+
+				<div>
+					<h3 className='text-white text-lg font-semibold mb-4'>Explore</h3>
+					<ul className='space-y-2 text-sm'>
+						{navigation.map((item) => (
+							<li key={item.href}>
+								<a href={"/" + item.href} className='capitalize hover:text-brand transition-colors'>
+									{item.name}
+								</a>
+							</li>
+						))}
+					</ul>
+				</div>
+
+				<div>
+					<h3 className='text-white text-lg font-semibold mb-4'>Contact</h3>
+					<ul className='space-y-2 text-sm'>
+						<li>
+							<a href={`tel:${company.phone.replace(/\s/g, "")}`} className='hover:text-brand'>
+								{company.phone}
+							</a>
+						</li>
+						<li>
+							<a href={`mailto:${company.email}`} className='hover:text-brand'>
+								{company.email}
+							</a>
+						</li>
+						<li>{company.address}</li>
+					</ul>
+					{socials.length > 0 && (
+						<div className='flex gap-x-3 mt-5'>
+							{socials.map(([key, url]) => (
+								<a
+									key={key}
+									href={url}
+									target='_blank'
+									rel='noreferrer'
+									aria-label={key}
+									className='w-10 h-10 rounded-full bg-white/10 hover:bg-accent flex items-center justify-center transition-colors'
+								>
+									{socialIcons[key]}
+								</a>
+							))}
+						</div>
+					)}
+				</div>
+			</div>
+			<div className='border-t border-white/10'>
+				<div className='container mx-auto py-5 text-xs text-white/60'>
+					&copy; {year} {company.name}. All rights reserved.
+				</div>
 			</div>
 		</footer>
 	);

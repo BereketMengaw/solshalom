@@ -1,57 +1,57 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import PegasusKitchen1 from "../assets/images/kitchen-cabinet-1.jpg";
-import PegasusBedroom from "../assets/images/bedroom-set.jpg";
-import PegasusDining from "../assets/images/dining-set.jpg";
-import PegasusKitchen3 from "../assets/images/kitchen-u-shape.jpg";
-import PegasusDoors from "../assets/images/wooden-doors.jpg";
-import PegasusEntrance from "../assets/images/entrance-door.jpg";
+import PhotoKitchen1 from "../assets/images/kitchen-cabinet-1.jpg";
+import PhotoBedroom from "../assets/images/bedroom-set.jpg";
+import PhotoDining from "../assets/images/dining-set.jpg";
+import PhotoKitchen3 from "../assets/images/kitchen-u-shape.jpg";
+import PhotoDoors from "../assets/images/wooden-doors.jpg";
+import PhotoEntrance from "../assets/images/entrance-door.jpg";
 import ModernSofaSet from "../assets/images/modern-sofa-set.jpg";
 import LuxuryOfficeDesk from "../assets/images/luxury-office-desk.jpg";
 import ElegantCoffeeTable from "../assets/images/elegant-coffee-table.jpg";
 
-const PegasusShowcase = () => {
+const Showcase = () => {
 	const navigate = useNavigate();
 	
 	const showcaseItems = [
 		{
 			id: "elegant-dining-collection",
-			image: PegasusKitchen1,
+			image: PhotoKitchen1,
 			title: "Elegant Dining Collection",
 			description: "Beautiful dining sets perfect for family gatherings and entertaining guests.",
 			category: "Dining"
 		},
 		{
 			id: "artisan-wooden-doors",
-			image: PegasusBedroom,
+			image: PhotoBedroom,
 			title: "Artisan Wooden Doors",
 			description: "Handcrafted doors with unique designs and premium wood finishes.",
 			category: "Doors"
 		},
 		{
 			id: "modern-kitchen-suite",
-			image: PegasusDining,
+			image: PhotoDining,
 			title: "Modern Kitchen Suite",
 			description: "Contemporary kitchen designs with premium materials and innovative storage solutions.",
 			category: "Kitchen"
 		},
 		{
 			id: "premium-kitchen-design",
-			image: PegasusDoors,
+			image: PhotoDoors,
 			title: "Premium Kitchen Design",
 			description: "Contemporary kitchen designs with premium materials and innovative storage solutions.",
 			category: "Kitchen"
 		},
 		{
 			id: "grand-entrance-solutions",
-			image: PegasusEntrance,
+			image: PhotoEntrance,
 			title: "Grand Entrance Solutions",
 			description: "Stunning entrance doors that make a lasting first impression.",
 			category: "Entrance"
 		},
 		{
 			id: "master-bedroom-collection",
-			image: PegasusKitchen3,
+			image: PhotoKitchen3,
 			title: "Master Bedroom Collection",
 			description: "Elegant bedroom sets combining comfort, style, and superior craftsmanship.",
 			category: "Bedroom"
@@ -83,7 +83,7 @@ const PegasusShowcase = () => {
 		<section id="showcase" className="section bg-gray-50">
 			<div className="container mx-auto">
 				<div className="text-center mb-16">
-					<h2 className="h2 mb-4">Pegasus Wood Work Products</h2>
+					<h2 className="h2 mb-4">Sol Shalom Trading</h2>
 					<p className="text-lg text-gray-600 max-w-3xl mx-auto">
 						Discover our signature collection of handcrafted furniture pieces. Each item is designed 
 						with precision, crafted with care, and finished with excellence to transform your living spaces.
@@ -125,7 +125,7 @@ const PegasusShowcase = () => {
 
 				<div className="text-center mt-12">
 					<div className="bg-white p-8 rounded-lg shadow-lg max-w-4xl mx-auto">
-						<h3 className="h3 mb-4">Why Choose Pegasus Wood Work Products?</h3>
+						<h3 className="h3 mb-4">Why Choose Sol Shalom Trading?</h3>
 						<div className="grid md:grid-cols-3 gap-6">
 							<div className="text-center">
 								<div className="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-4">
@@ -156,4 +156,4 @@ const PegasusShowcase = () => {
 	);
 };
 
-export default PegasusShowcase; 
+export default Showcase; 

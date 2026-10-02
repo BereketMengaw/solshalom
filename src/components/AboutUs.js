@@ -32,7 +32,7 @@ const AboutUs = () => {
 					<div>
 						<h2 className="h2 mb-6">Our Mission</h2>
 						<p className="text-lg text-gray-600 mb-8">
-							At Pegasus Furniture, our mission is to transform every home and workspace 
+							At Sol Shalom Trading, our mission is to transform every home and workspace 
 							with furniture that blends style, comfort, and durability.
 						</p>
 						<h3 className="h3 mb-6">Our Values</h3>
@@ -53,7 +53,7 @@ const AboutUs = () => {
 					<div>
 						<h3 className="h3 mb-4">About Us</h3>
 						<p className="text-gray-600 mb-4">
-							Pegasus Furniture is one of Ethiopia's leading furniture brands, 
+							Sol Shalom Trading is one of Ethiopia's leading furniture brands, 
 							specializing in custom-designed and ready-made furniture.
 						</p>
 						<p className="text-gray-600">

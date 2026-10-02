@@ -1,38 +1,39 @@
 import React from "react";
+import company from "../company";
 
 const Contact = () => {
 	const contactInfo = [
 		{
 			icon: "📍",
 			label: "Address",
-			value: "Adam, Addis Ababa, Ethiopia",
+			value: company.address,
 		},
 		{
 			icon: "📞",
 			label: "Phone",
-			value: "0982 444 546",
+			value: company.phone,
 		},
 		{
 			icon: "📧",
 			label: "Email",
-			value: "info@pegasusfurniture.com",
+			value: company.email,
 		},
 	];
 
 	const socialMedia = [
 		{
 			name: "Facebook",
-			url: "https://www.facebook.com/share/19RoGrxjoZ/?mibextid=wwXIfr",
+			url: company.social.facebook,
 			bgColor: "bg-blue-600 hover:bg-blue-700",
 		},
 		{
 			name: "Instagram",
-			url: "https://www.instagram.com/pegasus_furniture_ethiopia?igsh=ODRjYzYycTlwbzIz&utm_source=qr",
+			url: company.social.instagram,
 			bgColor: "bg-pink-600 hover:bg-pink-700",
 		},
 		{
 			name: "TikTok",
-			url: "https://www.tiktok.com/@pegasus.wood.work?_t=ZM-8zJYdGQDcuO&_r=1",
+			url: company.social.tiktok,
 			bgColor: "bg-black hover:bg-gray-800",
 		},
 	];

@@ -10,7 +10,7 @@ import Products from "./components/Products";
 import Testimonial from "./components/Testimonial";
 import AboutUs from "./components/AboutUs";
 import Contact from "./components/Contact";
-import PegasusShowcase from "./components/PegasusShowcase";
+import Showcase from "./components/Showcase";
 import BackToTop from "./components/BackToTop";
 import ProductDetails from "./components/ProductDetails";
 
@@ -20,7 +20,7 @@ function HomePage() {
 			<Hero />
 			<Features />
 			<AboutUs />
-			<PegasusShowcase />
+			<Showcase />
 			<NewItems />
 			<FeaturesSecond />
 			<Products />

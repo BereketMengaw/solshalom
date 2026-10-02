@@ -1,12 +1,12 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { IoIosArrowBack, IoLogoFacebook, IoLogoInstagram, IoLogoYoutube } from "react-icons/io";
-import PegasusKitchen1 from "../assets/images/kitchen-cabinet-1.jpg";
-import PegasusBedroom from "../assets/images/bedroom-set.jpg";
-import PegasusDining from "../assets/images/dining-set.jpg";
-import PegasusKitchen3 from "../assets/images/kitchen-u-shape.jpg";
-import PegasusDoors from "../assets/images/wooden-doors.jpg";
-import PegasusEntrance from "../assets/images/entrance-door.jpg";
+import { IoIosArrowBack } from "react-icons/io";
+import PhotoKitchen1 from "../assets/images/kitchen-cabinet-1.jpg";
+import PhotoBedroom from "../assets/images/bedroom-set.jpg";
+import PhotoDining from "../assets/images/dining-set.jpg";
+import PhotoKitchen3 from "../assets/images/kitchen-u-shape.jpg";
+import PhotoDoors from "../assets/images/wooden-doors.jpg";
+import PhotoEntrance from "../assets/images/entrance-door.jpg";
 import ModernSofaSet from "../assets/images/modern-sofa-set.jpg";
 import LuxuryOfficeDesk from "../assets/images/luxury-office-desk.jpg";
 import ElegantCoffeeTable from "../assets/images/elegant-coffee-table.jpg";
@@ -21,7 +21,7 @@ const ProductDetails = () => {
 			id: "elegant-dining-collection",
 			title: "Elegant Dining Collection",
 			category: "Dining",
-			image: PegasusKitchen1,
+			image: PhotoKitchen1,
 			description: "Beautiful dining sets perfect for family gatherings and entertaining guests. Our elegant dining collection combines timeless design with modern functionality, creating the perfect centerpiece for your dining room.",
 			fullDescription: "Transform your dining experience with our Elegant Dining Collection. Each piece is carefully crafted using premium materials and traditional woodworking techniques. The collection features sturdy construction, beautiful finishes, and designs that complement any home decor style. Perfect for family dinners, entertaining guests, or creating memorable moments around the table.",
 			features: [
@@ -45,7 +45,7 @@ const ProductDetails = () => {
 			id: "artisan-wooden-doors",
 			title: "Artisan Wooden Doors",
 			category: "Doors",
-			image: PegasusBedroom,
+			image: PhotoBedroom,
 			description: "Handcrafted doors with unique designs and premium wood finishes. Each door is a work of art, combining traditional craftsmanship with contemporary design.",
 			fullDescription: "Our Artisan Wooden Doors represent the pinnacle of Ethiopian woodworking craftsmanship. Each door is individually crafted by skilled artisans using traditional techniques passed down through generations. These doors not only provide security and privacy but also serve as stunning architectural features that enhance the beauty of your home.",
 			features: [
@@ -69,7 +69,7 @@ const ProductDetails = () => {
 			id: "modern-kitchen-suite",
 			title: "Modern Kitchen Suite",
 			category: "Kitchen",
-			image: PegasusDining,
+			image: PhotoDining,
 			description: "Contemporary kitchen designs with premium materials and innovative storage solutions. Create the kitchen of your dreams with our modern suite.",
 			fullDescription: "Our Modern Kitchen Suite combines sleek contemporary design with practical functionality. Featuring innovative storage solutions, premium materials, and cutting-edge design elements, this kitchen suite will transform your cooking space into a modern culinary haven.",
 			features: [
@@ -93,7 +93,7 @@ const ProductDetails = () => {
 			id: "premium-kitchen-design",
 			title: "Premium Kitchen Design",
 			category: "Kitchen",
-			image: PegasusDoors,
+			image: PhotoDoors,
 			description: "Contemporary kitchen designs with premium materials and innovative storage solutions. Experience luxury in every detail.",
 			fullDescription: "Our Premium Kitchen Design represents the ultimate in luxury kitchen furniture. Every element has been carefully selected and crafted to provide both exceptional beauty and superior functionality. This is kitchen design at its finest.",
 			features: [
@@ -117,7 +117,7 @@ const ProductDetails = () => {
 			id: "grand-entrance-solutions",
 			title: "Grand Entrance Solutions",
 			category: "Entrance",
-			image: PegasusEntrance,
+			image: PhotoEntrance,
 			description: "Stunning entrance doors that make a lasting first impression. Welcome guests with style and elegance.",
 			fullDescription: "Make a grand entrance with our stunning entrance door solutions. These doors are designed to create a powerful first impression while providing security and durability. Each door is crafted with attention to detail and finished to perfection.",
 			features: [
@@ -141,7 +141,7 @@ const ProductDetails = () => {
 			id: "master-bedroom-collection",
 			title: "Master Bedroom Collection",
 			category: "Bedroom",
-			image: PegasusKitchen3,
+			image: PhotoKitchen3,
 			description: "Elegant bedroom sets combining comfort, style, and superior craftsmanship. Create your perfect sanctuary.",
 			fullDescription: "Transform your bedroom into a luxurious sanctuary with our Master Bedroom Collection. Every piece is designed with comfort and style in mind, featuring premium materials and expert craftsmanship that ensures years of enjoyment.",
 			features: [
@@ -354,22 +354,6 @@ const ProductDetails = () => {
 							<button className="flex-1 border-2 border-primary text-primary py-4 px-6 rounded-lg hover:bg-primary hover:text-white transition-colors font-semibold">
 								Contact Us
 							</button>
-						</div>
-
-						{/* Social Share */}
-						<div className="pt-6 border-t">
-							<p className="text-gray-600 mb-4">Share this product:</p>
-							<div className="flex gap-4">
-								<a href="https://www.facebook.com/share/19RoGrxjoZ/?mibextid=wwXIfr" className="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors">
-									<IoLogoFacebook />
-								</a>
-								<a href="https://www.instagram.com/pegasus_furniture_ethiopia?igsh=ODRjYzYycTlwbzIz&utm_source=qr" className="w-10 h-10 bg-pink-600 text-white rounded-full flex items-center justify-center hover:bg-pink-700 transition-colors">
-									<IoLogoInstagram />
-								</a>
-								<a href="https://www.tiktok.com/@pegasus.wood.work?_t=ZM-8zJYdGQDcuO&_r=1" className="w-10 h-10 bg-red-600 text-white rounded-full flex items-center justify-center hover:bg-red-700 transition-colors">
-									<IoLogoYoutube />
-								</a>
-							</div>
 						</div>
 					</div>
 				</div>
