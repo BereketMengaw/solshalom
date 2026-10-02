@@ -67,8 +67,9 @@ const Header = () => {
 		return () => window.removeEventListener("scroll", handleScroll);
 	}, []);
 
+	const current = location.pathname === "/" ? activeSection : location.pathname.startsWith("/product") ? "products" : null;
 	const navItems = navigation.map((item) => {
-		const isActive = activeSection === item.href.replace("#", "");
+		const isActive = current === item.href.replace("#", "");
 		return (
 			<li key={item.href}>
 				<button
@@ -121,7 +122,7 @@ const Header = () => {
 					mobileNav ? "left-0" : "-left-full"
 				} lg:hidden fixed top-20 bottom-0 w-full max-w-xs transition-all`}
 			>
-				<NavMobile onNavClick={scrollToSection} activeSection={activeSection} />
+				<NavMobile onNavClick={scrollToSection} activeSection={current} />
 			</div>
 		</header>
 	);
