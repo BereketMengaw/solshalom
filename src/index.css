@@ -36,3 +36,12 @@
 		@apply text-[18px] lg:text-[20px] leading-relaxed mb-5 lg:mb-9;
 	}
 }
+
+@layer utilities {
+	.scrollbar-none {
+		scrollbar-width: none;
+	}
+	.scrollbar-none::-webkit-scrollbar {
+		display: none;
+	}
+}
