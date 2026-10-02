@@ -1,146 +1,145 @@
-import React from "react";
-import company from "../company";
+import React, { useState } from "react";
+import { FaWhatsapp } from "react-icons/fa";
+import { IoIosCall, IoIosMail, IoIosPin, IoIosTime } from "react-icons/io";
+import company, { whatsappLink } from "../company";
+import { contact } from "../data";
+import SectionHeading from "./SectionHeading";
+
+const field =
+	"w-full border border-line rounded px-4 py-3 text-sm bg-white outline-none focus:border-accent transition-colors";
+
+// No backend: the form composes a WhatsApp message (or an email) the visitor sends themselves.
+const buildMessage = ({ name, organisation, phone, message }) =>
+	[
+		"Hello Sol Shalom,",
+		message.trim(),
+		"",
+		`Name: ${name.trim()}`,
+		organisation.trim() && `Company: ${organisation.trim()}`,
+		phone.trim() && `Phone: ${phone.trim()}`,
+	]
+		.filter((line) => line !== false && line !== "")
+		.join("\n");
 
 const Contact = () => {
-	const contactInfo = [
-		{
-			icon: "📍",
-			label: "Address",
-			value: company.address,
-		},
-		{
-			icon: "📞",
-			label: "Phone",
-			value: company.phone,
-		},
-		{
-			icon: "📧",
-			label: "Email",
-			value: company.email,
-		},
-	];
+	const [form, setForm] = useState({ name: "", organisation: "", phone: "", message: "" });
+	const [error, setError] = useState("");
+	const update = (key) => (e) => setForm({ ...form, [key]: e.target.value });
 
-	const socialMedia = [
-		{
-			name: "Facebook",
-			url: company.social.facebook,
-			bgColor: "bg-blue-600 hover:bg-blue-700",
-		},
-		{
-			name: "Instagram",
-			url: company.social.instagram,
-			bgColor: "bg-pink-600 hover:bg-pink-700",
-		},
-		{
-			name: "TikTok",
-			url: company.social.tiktok,
-			bgColor: "bg-black hover:bg-gray-800",
-		},
+	const send = (channel) => (e) => {
+		e.preventDefault();
+		if (!form.name.trim() || !form.message.trim()) {
+			setError("Please add your name and what you need.");
+			return;
+		}
+		setError("");
+		const text = buildMessage(form);
+		const url =
+			channel === "whatsapp"
+				? whatsappLink(text)
+				: `mailto:${company.email}?subject=${encodeURIComponent(
+						`Quote request from ${form.name.trim()}`
+				  )}&body=${encodeURIComponent(text)}`;
+		window.open(url, "_blank", "noopener");
+	};
+
+	const details = [
+		{ icon: <IoIosCall />, label: "Phone", value: company.phone, href: `tel:${company.phone.replace(/\s/g, "")}` },
+		{ icon: <FaWhatsapp />, label: "WhatsApp", value: `+${company.whatsapp}`, href: whatsappLink() },
+		{ icon: <IoIosMail />, label: "Email", value: company.email, href: `mailto:${company.email}` },
+		{ icon: <IoIosPin />, label: "Address", value: company.address, href: company.mapUrl || undefined },
 	];
 
 	return (
-		<section id="contact" className="section bg-white">
-			<div className="container mx-auto">
-				<div className="text-center mb-12">
-					<h2 className="h2 mb-4">Get In Touch</h2>
-					<p className="text-lg text-gray-600 max-w-2xl mx-auto">
-						Ready to transform your space? Contact us today to discuss your furniture needs 
-						or visit our showroom in Addis Ababa.
-					</p>
-				</div>
+		<section id='contact' className='section bg-brand-tint'>
+			<div className='container mx-auto grid lg:grid-cols-[1fr_1.2fr] gap-10 lg:gap-16'>
+				<div>
+					<SectionHeading eyebrow='Contact us' title={contact.title} subtitle={contact.subtitle} />
 
-				<div className="grid lg:grid-cols-2 gap-12">
-					{/* Contact Information */}
-					<div className="space-y-8">
-						<div>
-							<h3 className="h3 mb-6">Contact Information</h3>
-							<div className="space-y-4">
-								{contactInfo.map((info, index) => (
-									<div key={index} className="flex items-center gap-4">
-										<span className="text-3xl">{info.icon}</span>
-										<div>
-											<p className="text-sm text-gray-500 uppercase tracking-wide">
-												{info.label}
-											</p>
-											<p className="text-lg font-medium text-gray-800">
-												{info.value}
-											</p>
-										</div>
-									</div>
-								))}
-							</div>
-						</div>
-
-						<div>
-							<h3 className="h3 mb-6">Business Hours</h3>
-							<div className="space-y-2 text-gray-600">
-								<p><span className="font-medium">Monday - Friday:</span> 8:00 AM - 6:00 PM</p>
-								<p><span className="font-medium">Saturday:</span> 9:00 AM - 4:00 PM</p>
-								<p><span className="font-medium">Sunday:</span> Closed</p>
-							</div>
-						</div>
-					</div>
-
-					{/* Social Media & Contact Form */}
-					<div className="space-y-8">
-						<div>
-							<h3 className="h3 mb-6">Follow Us</h3>
-							<p className="text-gray-600 mb-4">
-								Stay updated with our latest collections, design inspirations, and special offers.
-							</p>
-							<div className="flex gap-4">
-								{socialMedia.map((social, index) => (
-									<a
-										key={index}
-										href={social.url}
-										target="_blank"
-										rel="noopener noreferrer"
-										className={`${social.bgColor} text-white px-6 py-3 rounded-lg transition-colors duration-200`}
+					<ul className='space-y-3'>
+						{details.map((d) => {
+							const Tag = d.href ? "a" : "div";
+							return (
+								<li key={d.label}>
+									<Tag
+										{...(d.href ? { href: d.href, target: d.href.startsWith("http") ? "_blank" : undefined, rel: "noreferrer" } : {})}
+										className='flex items-center gap-x-4 bg-white rounded-md p-4 border border-transparent hover:border-brand transition-colors'
 									>
-										{social.name}
-									</a>
-								))}
-							</div>
-						</div>
+										<span className='w-11 h-11 shrink-0 rounded-full bg-brand-tint text-accent text-xl flex items-center justify-center'>
+											{d.icon}
+										</span>
+										<span>
+											<span className='block text-xs uppercase tracking-wider text-ink-soft'>{d.label}</span>
+											<span className='block font-medium text-ink break-all'>{d.value}</span>
+										</span>
+									</Tag>
+								</li>
+							);
+						})}
+					</ul>
 
-						<div>
-							<h3 className="h3 mb-6">Send us a Message</h3>
-							<form className="space-y-4">
-								<div className="grid grid-cols-2 gap-4">
-									<input
-										type="text"
-										placeholder="First Name"
-										className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
-									/>
-									<input
-										type="text"
-										placeholder="Last Name"
-										className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
-									/>
-								</div>
-								<input
-									type="email"
-									placeholder="Email Address"
-									className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
-								/>
-								<textarea
-									rows="4"
-									placeholder="Your Message"
-									className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent resize-none"
-								></textarea>
-								<button
-									type="submit"
-									className="w-full bg-accent text-white py-3 px-6 rounded-lg hover:bg-accent/90 transition-colors duration-200"
-								>
-									Send Message
-								</button>
-							</form>
-						</div>
+					<div className='mt-6 flex gap-x-4 text-sm'>
+						<IoIosTime className='text-xl text-accent shrink-0' />
+						<dl className='grid grid-cols-[auto_1fr] gap-x-6 gap-y-1'>
+							{contact.hours.map(([day, time]) => (
+								<React.Fragment key={day}>
+									<dt className='text-ink-soft'>{day}</dt>
+									<dd className='font-medium'>{time}</dd>
+								</React.Fragment>
+							))}
+						</dl>
 					</div>
 				</div>
+
+				<form onSubmit={send("whatsapp")} className='bg-white rounded-md p-6 sm:p-8 shadow-[0_8px_24px_rgba(26,43,44,0.06)] self-start'>
+					<h3 className='text-2xl font-semibold'>Request a quote</h3>
+					<p className='mt-1 text-sm text-ink-soft'>Your message opens in WhatsApp or email, ready to send.</p>
+
+					<div className='mt-6 grid sm:grid-cols-2 gap-4'>
+						<label className='block'>
+							<span className='text-sm font-medium'>Your name *</span>
+							<input className={`${field} mt-1`} value={form.name} onChange={update("name")} autoComplete='name' />
+						</label>
+						<label className='block'>
+							<span className='text-sm font-medium'>Company or organisation</span>
+							<input className={`${field} mt-1`} value={form.organisation} onChange={update("organisation")} autoComplete='organization' />
+						</label>
+						<label className='block sm:col-span-2'>
+							<span className='text-sm font-medium'>Phone</span>
+							<input className={`${field} mt-1`} type='tel' value={form.phone} onChange={update("phone")} autoComplete='tel' />
+						</label>
+						<label className='block sm:col-span-2'>
+							<span className='text-sm font-medium'>What do you need? *</span>
+							<textarea
+								className={`${field} mt-1 h-32 resize-none`}
+								value={form.message}
+								onChange={update("message")}
+								placeholder='e.g. 10 × Q8 ergonomic chairs and 1 × YC48 conference table'
+							/>
+						</label>
+					</div>
+
+					{error && <p className='mt-3 text-sm text-red-700'>{error}</p>}
+
+					<div className='mt-5 grid sm:grid-cols-2 gap-3'>
+						<button
+							type='submit'
+							className='flex items-center justify-center gap-x-2 bg-accent hover:bg-accent-hover text-white font-display uppercase tracking-wider font-semibold py-3 rounded transition-colors'
+						>
+							<FaWhatsapp className='text-xl' /> Send on WhatsApp
+						</button>
+						<button
+							type='button'
+							onClick={send("email")}
+							className='flex items-center justify-center gap-x-2 border border-accent text-accent hover:bg-accent hover:text-white font-display uppercase tracking-wider font-semibold py-3 rounded transition-colors'
+						>
+							<IoIosMail className='text-xl' /> Send by email
+						</button>
+					</div>
+				</form>
 			</div>
 		</section>
 	);
 };
 
-export default Contact; 
+export default Contact;
