@@ -13,8 +13,8 @@ const company = {
 	social: {
 		facebook: "https://www.facebook.com/solshalomfurniture/",
 		instagram: "https://www.instagram.com/solshalomfurniture/",
-		telegram: "",
-		tiktok: "",
+		telegram: "https://t.me/solshalomfurniture",
+		tiktok: "https://www.tiktok.com/@sol_shalom_furniture",
 	},
 };
 
