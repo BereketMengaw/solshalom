@@ -19,7 +19,7 @@ const NavMobile = ({ onNavClick, activeSection }) => {
 	});
 
 	return (
-		<nav className='bg-white w-full h-full shadow-2xl border-t border-line'>
+		<nav className='bg-surface w-full h-full shadow-2xl border-t border-line'>
 			<ul className='h-full flex flex-col items-center justify-center gap-y-6 text-2xl font-medium'>
 				{navItems}
 				<li className='mt-4'>

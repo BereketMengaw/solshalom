@@ -12,7 +12,7 @@ import Mark from "../assets/brand/mark.png";
 const Hero = () => {
 	const featured = getProduct(hero.featured);
 	return (
-		<section id='home' className='relative pt-20 bg-white overflow-hidden'>
+		<section id='home' className='relative pt-20 bg-surface overflow-hidden'>
 			<div className='container mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-10 lg:gap-6 py-10 lg:py-16'>
 				<div>
 					<p className='flex items-center gap-x-3 font-display text-sm font-semibold uppercase tracking-[0.2em] text-brand'>
@@ -64,7 +64,7 @@ const Hero = () => {
 					{featured && (
 						<Link
 							to={`/product/${featured.id}`}
-							className='absolute right-0 sm:-right-2 bottom-[10%] bg-white rounded-md shadow-[0_8px_24px_rgba(26,43,44,0.12)] px-4 py-3 hover:shadow-[0_8px_28px_rgba(26,43,44,0.2)] transition-shadow'
+							className='absolute right-0 sm:-right-2 bottom-[10%] bg-surface rounded-md shadow-[0_8px_24px_rgba(26,43,44,0.12)] px-4 py-3 hover:shadow-[0_8px_28px_rgba(26,43,44,0.2)] transition-shadow'
 						>
 							<span className='block font-display text-xs font-semibold uppercase tracking-widest text-brand'>
 								Model {featured.code}

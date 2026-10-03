@@ -16,7 +16,7 @@ const Footer = () => {
 	const year = new Date().getFullYear();
 
 	return (
-		<footer className='bg-ink text-white/80'>
+		<footer className='bg-deep text-white/80'>
 			<div className='container mx-auto py-14 grid gap-10 md:grid-cols-3'>
 				<div>
 					<Wordmark light />
@@ -77,7 +77,7 @@ const Footer = () => {
 					Sol Shalom
 				</p>
 			</div>
-			<div className='relative border-t border-white/10 bg-ink'>
+			<div className='relative border-t border-white/10 bg-deep'>
 				<div className='container mx-auto py-5 text-xs text-white/60'>
 					&copy; {year} {company.name}. All rights reserved.
 				</div>

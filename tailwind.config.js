@@ -1,4 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+// Colours are CSS variables (see src/index.css) so the light/dark theme can swap them.
+const v = (name) => `rgb(var(--c-${name}) / <alpha-value>)`;
+
 module.exports = {
 	content: ["./src/**/*.{js,jsx,ts,tsx}"],
 	theme: {
@@ -19,12 +22,15 @@ module.exports = {
 			},
 			colors: {
 				// Sol Shalom Trading brand
-				ink: { DEFAULT: "#1A2B2C", soft: "#4A5A5B" },
-				primary: "#1A2B2C",
-				accent: { DEFAULT: "#1F7F82", hover: "#17676A" },
-				brand: { DEFAULT: "#3FA9AC", aqua: "#94D4D8", tint: "#EEF8F8" },
-				card: "#F4F7F7",
-				line: "#DDE6E6",
+				surface: v("surface"),
+				ink: { DEFAULT: v("ink"), soft: v("ink-soft") },
+				primary: v("ink"),
+				deep: v("deep"),
+				accent: { DEFAULT: v("accent"), hover: v("accent-hover") },
+				brand: { DEFAULT: "#3FA9AC", aqua: v("aqua"), tint: v("tint") },
+				card: v("card"),
+				stage: v("stage"),
+				line: v("line"),
 				grey: {
 					DEFAULT: "#919297",
 					1: "#D9D9D9",
@@ -32,10 +38,6 @@ module.exports = {
 					3: "#F5F5F5",
 				},
 				white: "#fff",
-			},
-			backgroundImage: {
-				hero: 'url("/src/assets/images/hero-bg.png")',
-				newsletter: 'url("/src/assets/images/newsletter.png")',
 			},
 			dropShadow: {
 				primary: "0px 4px 10px rgba(15, 27, 51, 0.05);",

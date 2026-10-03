@@ -29,7 +29,7 @@ const Row = ({ hidden }) => (
 // Endless strip of what Sol Shalom supplies. Stops for reduced-motion users.
 const Marquee = ({ tone = "teal" }) => (
 	<div
-		className={`marquee overflow-hidden py-4 ${tone === "teal" ? "bg-accent text-white" : "bg-ink text-white"}`}
+		className={`marquee overflow-hidden py-4 ${tone === "teal" ? "bg-accent text-white" : "bg-deep text-white"}`}
 	>
 		<div className='marquee-track flex w-max'>
 			<Row />

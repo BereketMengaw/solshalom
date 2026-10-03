@@ -6,7 +6,7 @@ import { contact } from "../data";
 import SectionHeading from "./SectionHeading";
 
 const field =
-	"w-full border border-line rounded px-4 py-3 text-sm bg-white outline-none focus:border-accent transition-colors";
+	"w-full border border-line rounded px-4 py-3 text-sm bg-surface outline-none focus:border-accent transition-colors";
 
 // No backend: the form composes a WhatsApp message (or an email) the visitor sends themselves.
 const buildMessage = ({ name, organisation, phone, message }) =>
@@ -65,7 +65,7 @@ const Contact = () => {
 								<li key={d.label}>
 									<Tag
 										{...(d.href ? { href: d.href, target: d.href.startsWith("http") ? "_blank" : undefined, rel: "noreferrer" } : {})}
-										className='flex items-center gap-x-4 bg-white rounded-md p-4 border border-transparent hover:border-brand transition-colors'
+										className='flex items-center gap-x-4 bg-surface rounded-md p-4 border border-transparent hover:border-brand transition-colors'
 									>
 										<span className='w-11 h-11 shrink-0 rounded-full bg-brand-tint text-accent text-xl flex items-center justify-center'>
 											{d.icon}
@@ -93,7 +93,7 @@ const Contact = () => {
 					</div>
 				</div>
 
-				<form onSubmit={send("whatsapp")} className='bg-white rounded-md p-6 sm:p-8 shadow-[0_8px_24px_rgba(26,43,44,0.06)] self-start'>
+				<form onSubmit={send("whatsapp")} className='bg-surface rounded-md p-6 sm:p-8 shadow-[0_8px_24px_rgba(26,43,44,0.06)] self-start'>
 					<h3 className='text-2xl font-semibold'>Request a quote</h3>
 					<p className='mt-1 text-sm text-ink-soft'>Your message opens in WhatsApp or email, ready to send.</p>
 

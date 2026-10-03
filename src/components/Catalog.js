@@ -11,7 +11,7 @@ const Chip = ({ active, onClick, children, count }) => (
 		className={`shrink-0 whitespace-nowrap rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
 			active
 				? "bg-accent border-accent text-white"
-				: "bg-white border-line text-ink hover:border-accent hover:text-accent"
+				: "bg-surface border-line text-ink hover:border-accent hover:text-accent"
 		}`}
 	>
 		{children}
@@ -58,7 +58,7 @@ const Catalog = () => {
 	const category = active && getCategory(active);
 
 	return (
-		<section id='products' className='section bg-white'>
+		<section id='products' className='section bg-surface'>
 			<div className='container mx-auto'>
 				<div className='flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6'>
 					<SectionHeading

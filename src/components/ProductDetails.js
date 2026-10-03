@@ -49,7 +49,7 @@ const ProductDetails = () => {
 			<section className='container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 pb-16'>
 				{/* Gallery */}
 				<div>
-					<div className='relative aspect-square bg-card rounded-md overflow-hidden'>
+					<div className='relative aspect-square bg-stage rounded-md overflow-hidden'>
 						<ProductImage product={product} index={index} className='absolute inset-0 w-full h-full' />
 					</div>
 					{product.images.length > 1 && (
@@ -59,7 +59,7 @@ const ProductDetails = () => {
 									key={src}
 									onClick={() => setIndex(i)}
 									aria-label={`Show photo ${i + 1}`}
-									className={`aspect-square bg-card rounded p-2 border-2 transition-colors ${
+									className={`aspect-square bg-stage rounded p-2 border-2 transition-colors ${
 										i === index ? "border-accent" : "border-transparent hover:border-line"
 									}`}
 								>

@@ -16,7 +16,7 @@ const tiles = [
 
 // Bento grid of the main categories, linking into the filtered catalog.
 const ShopByCategory = () => (
-	<section className='section bg-white'>
+	<section className='section bg-surface'>
 		<div className='container mx-auto'>
 			<SectionHeading eyebrow='Shop by category' title='Start with the room you are furnishing' />
 			<div className='grid grid-cols-2 lg:grid-cols-4 auto-rows-[180px] sm:auto-rows-[220px] gap-3 sm:gap-4'>
@@ -32,11 +32,11 @@ const ShopByCategory = () => (
 							<Link
 								to={`/products?category=${t.id}`}
 								className={`group relative flex h-full overflow-hidden rounded-md ${
-									t.big ? "bg-brand-aqua/60" : "bg-brand-tint"
+									t.big ? "bg-[#BFE6E8]" : "bg-brand-tint"
 								}`}
 							>
 								<Blob
-									className={`absolute text-white/80 transition-transform duration-700 group-hover:scale-110 group-hover:-rotate-6 motion-reduce:transition-none ${
+									className={`absolute ${t.big ? "text-white/80" : "text-surface/80"} transition-transform duration-700 group-hover:scale-110 group-hover:-rotate-6 motion-reduce:transition-none ${
 										t.big ? "right-[-10%] top-[8%] w-[75%] h-[85%]" : "right-[-18%] top-[-10%] w-[90%] h-[95%]"
 									}`}
 								/>
@@ -57,10 +57,10 @@ const ShopByCategory = () => (
 									</span>
 								)}
 								<div className='relative mt-auto p-4 sm:p-5'>
-									<p className={`font-display font-semibold uppercase tracking-wide text-ink leading-none ${t.big ? "text-3xl sm:text-5xl max-w-[45%]" : "text-base sm:text-2xl"}`}>
+									<p className={`font-display font-semibold uppercase tracking-wide leading-none ${t.big ? "text-[#1A2B2C]" : "text-ink"} ${t.big ? "text-3xl sm:text-5xl max-w-[45%]" : "text-base sm:text-2xl"}`}>
 										{c.name}
 									</p>
-									<p className='mt-1 flex items-center gap-x-1 text-xs sm:text-sm text-ink-soft group-hover:text-accent'>
+									<p className={`mt-1 flex items-center gap-x-1 text-xs sm:text-sm group-hover:text-accent ${t.big ? "text-[#4A5A5B]" : "text-ink-soft"}`}>
 										{count} models <IoIosArrowRoundForward className='text-xl transition-transform group-hover:translate-x-1' />
 									</p>
 								</div>

@@ -16,7 +16,7 @@ const icons = {
 const HowToOrder = () => {
 	const [ref, inView] = useInView({ threshold: 0.35 });
 	return (
-		<div ref={ref} className='relative mt-16 overflow-hidden rounded-md bg-ink text-white p-6 sm:p-10'>
+		<div ref={ref} className='relative mt-16 overflow-hidden rounded-md bg-deep text-white p-6 sm:p-10'>
 			<img src={Mark} alt='' className='pointer-events-none absolute -right-10 -bottom-12 w-72 opacity-[0.07] brightness-0 invert' />
 			<h3 className='text-2xl lg:text-3xl font-semibold'>{steps.title}</h3>
 			<div className='relative mt-8'>
@@ -35,7 +35,7 @@ const HowToOrder = () => {
 							style={{ transitionDelay: `${i * 250}ms` }}
 							className='reveal relative'
 						>
-							<span className='relative inline-block bg-ink pr-3 font-display text-6xl font-semibold leading-none text-outline'>
+							<span className='relative inline-block bg-deep pr-3 font-display text-6xl font-semibold leading-none text-outline'>
 								{String(i + 1).padStart(2, "0")}
 							</span>
 							<p className='mt-4 font-display text-xl uppercase tracking-wider font-semibold'>{step.title}</p>
@@ -49,7 +49,7 @@ const HowToOrder = () => {
 };
 
 const WhyChooseUs = () => (
-	<section id='why-us' className='section bg-white'>
+	<section id='why-us' className='section bg-surface'>
 		<div className='container mx-auto'>
 			<SectionHeading eyebrow='Why Sol Shalom' title={whyUs.title} subtitle={whyUs.subtitle} />
 

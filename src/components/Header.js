@@ -5,6 +5,7 @@ import { navigation } from "../data";
 import Mark from "../assets/brand/mark.png";
 import company from "../company";
 import NavMobile from "./NavMobile";
+import ThemeToggle from "./ThemeToggle";
 
 const HEADER_HEIGHT = 80;
 
@@ -88,8 +89,8 @@ const Header = () => {
 
 	return (
 		<header
-			className={`fixed top-0 left-0 w-full z-30 bg-white transition-shadow ${
-				scrolled ? "shadow-[0_1px_0_#DDE6E6,0_4px_16px_rgba(26,43,44,0.06)]" : ""
+			className={`fixed top-0 left-0 w-full z-30 bg-surface transition-shadow ${
+				scrolled ? "shadow-[0_1px_0_rgb(var(--c-line)),0_4px_16px_rgba(0,0,0,0.06)]" : ""
 			}`}
 		>
 			<div className='container mx-auto h-20 flex items-center justify-between'>
@@ -97,8 +98,9 @@ const Header = () => {
 					<Wordmark />
 				</button>
 
-				<nav className='hidden lg:flex items-center gap-x-10'>
+				<nav className='hidden lg:flex items-center gap-x-8'>
 					<ul className='flex gap-x-8'>{navItems}</ul>
+					<ThemeToggle />
 					<button
 						onClick={() => scrollToSection("#contact")}
 						className='bg-accent hover:bg-accent-hover text-white font-display uppercase tracking-wider text-[15px] font-semibold px-5 py-2.5 rounded transition-colors'
@@ -107,13 +109,16 @@ const Header = () => {
 					</button>
 				</nav>
 
+				<div className='flex items-center gap-x-3 lg:hidden'>
+				<ThemeToggle />
 				<button
 					onClick={() => setMobileNav(!mobileNav)}
-					className='text-3xl text-ink lg:hidden'
+					className='text-3xl text-ink'
 					aria-label={mobileNav ? "Close menu" : "Open menu"}
 				>
 					{mobileNav ? <CgClose /> : <CgMenuRight />}
 				</button>
+				</div>
 			</div>
 
 			{/* Nav Mobile */}

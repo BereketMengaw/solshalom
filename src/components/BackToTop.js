@@ -18,7 +18,7 @@ const BackToTop = () => {
 			{isVisible && (
 				<button
 					onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-					className='w-11 h-11 rounded-full bg-white text-ink border border-line shadow-md flex items-center justify-center hover:text-accent transition-colors'
+					className='w-11 h-11 rounded-full bg-surface text-ink border border-line shadow-md flex items-center justify-center hover:text-accent transition-colors'
 					aria-label='Back to top'
 				>
 					<IoIosArrowUp className='text-xl' />

@@ -14,7 +14,7 @@ const Gallery = () => (
 						as='figure'
 						key={img.src}
 						delay={i * 80}
-						className={`group relative overflow-hidden rounded-md bg-white ${
+						className={`group relative overflow-hidden rounded-md bg-surface ${
 							i === 0 ? "col-span-2 row-span-2 aspect-square lg:aspect-auto" : "aspect-[4/3]"
 						}`}
 					>
@@ -24,7 +24,7 @@ const Gallery = () => (
 							loading='lazy'
 							className='w-full h-full object-cover hover:scale-105 transition-transform duration-500'
 						/>
-						<figcaption className='absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/80 to-transparent text-white text-xs sm:text-sm px-3 pt-8 pb-2'>
+						<figcaption className='absolute inset-x-0 bottom-0 bg-gradient-to-t from-deep/80 to-transparent text-white text-xs sm:text-sm px-3 pt-8 pb-2'>
 							{img.alt}
 						</figcaption>
 						<span className='absolute inset-0 bg-accent/0 group-hover:bg-accent/15 transition-colors' />
