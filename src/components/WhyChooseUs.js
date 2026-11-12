@@ -1,5 +1,5 @@
 import React from "react";
-import { IoMdRibbon, IoIosBody, IoIosApps, IoIosChatbubbles } from "react-icons/io";
+import { FaAward, FaIndustry, FaDraftingCompass, FaTruck, FaBalanceScale, FaHeadset } from "react-icons/fa";
 import { whyUs, steps } from "../data";
 import SectionHeading from "./SectionHeading";
 import Reveal from "./Reveal";
@@ -7,10 +7,12 @@ import useInView from "../hooks/useInView";
 import Mark from "../assets/brand/mark.png";
 
 const icons = {
-	quality: <IoMdRibbon />,
-	ergonomic: <IoIosBody />,
-	range: <IoIosApps />,
-	service: <IoIosChatbubbles />,
+	quality: <FaAward />,
+	capacity: <FaIndustry />,
+	customization: <FaDraftingCompass />,
+	reliability: <FaTruck />,
+	value: <FaBalanceScale />,
+	support: <FaHeadset />,
 };
 
 const HowToOrder = () => {
@@ -51,15 +53,15 @@ const HowToOrder = () => {
 const WhyChooseUs = () => (
 	<section id='why-us' className='section bg-surface'>
 		<div className='container mx-auto'>
-			<SectionHeading eyebrow='Why Sol Shalom' title={whyUs.title} subtitle={whyUs.subtitle} />
+			<SectionHeading eyebrow={whyUs.eyebrow} title={whyUs.title} />
 
-			<div className='grid sm:grid-cols-2 lg:grid-cols-4 gap-5'>
+			<div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-5'>
 				{whyUs.items.map((item, i) => (
-					<Reveal key={item.title} delay={i * 90} className='group rounded-md border border-line p-6 hover:border-brand hover:bg-brand-tint/50 transition-colors'>
-						<div className='w-12 h-12 rounded-full bg-brand-tint text-accent text-2xl flex items-center justify-center transition-colors group-hover:bg-accent group-hover:text-white'>
+					<Reveal key={item.title} delay={(i % 3) * 90} className='group rounded-md border border-line p-6 hover:border-brand hover:bg-brand-tint/50 transition-colors'>
+						<div className='w-12 h-12 rounded-full bg-brand-tint text-accent text-xl flex items-center justify-center transition-colors group-hover:bg-accent group-hover:text-white'>
 							{icons[item.icon]}
 						</div>
-						<h3 className='mt-5 text-xl font-semibold text-ink'>{item.title}</h3>
+						<h3 className='mt-5 font-display text-xl font-semibold uppercase tracking-wider text-ink'>{item.title}</h3>
 						<p className='mt-2 text-sm text-ink-soft'>{item.text}</p>
 					</Reveal>
 				))}

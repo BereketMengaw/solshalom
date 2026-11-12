@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { FaWhatsapp } from "react-icons/fa";
+import { FaWhatsapp, FaTelegramPlane, FaFacebookF } from "react-icons/fa";
 import { IoIosCall, IoIosMail, IoIosPin, IoIosTime } from "react-icons/io";
-import company, { whatsappLink } from "../company";
+import company, { whatsappLink, telegramLink, telLink } from "../company";
 import { contact } from "../data";
 import SectionHeading from "./SectionHeading";
 
@@ -43,13 +43,14 @@ const Contact = () => {
 		window.open(url, "_blank", "noopener");
 	};
 
+	// Each detail has one or more links; every number and address is clickable.
 	const details = [
-		{ icon: <IoIosCall />, label: "Phone", value: company.phones.map((n, i) => (
-			<span key={n} className="block whitespace-nowrap">{n}</span>
-		)), href: `tel:${company.phone.replace(/\s/g, "")}` },
-		{ icon: <FaWhatsapp />, label: "WhatsApp", value: `+${company.whatsapp.replace(/^(\d{3})(\d{2})(\d{3})(\d{4})$/, "$1 $2 $3 $4")}`, href: whatsappLink() },
-		{ icon: <IoIosMail />, label: "Email", value: company.email, href: `mailto:${company.email}` },
-		{ icon: <IoIosPin />, label: "Address", value: company.address, href: company.mapUrl || undefined },
+		{ icon: <IoIosCall />, label: "Office telephone", links: company.phones.map((p) => ({ text: p.display, href: telLink(p) })) },
+		{ icon: <FaWhatsapp />, label: "WhatsApp", links: [{ text: company.messaging.display, href: whatsappLink() }] },
+		{ icon: <FaTelegramPlane />, label: "Telegram", links: [{ text: company.messaging.display, href: telegramLink() }] },
+		{ icon: <IoIosMail />, label: "Email", links: [{ text: company.email, href: `mailto:${company.email}` }] },
+		{ icon: <FaFacebookF />, label: "Facebook", links: [{ text: "Sol Shalom on Facebook", href: company.social.facebook }] },
+		{ icon: <IoIosPin />, label: "Address", links: [{ text: company.address, href: company.mapUrl }] },
 	];
 
 	return (
@@ -59,25 +60,33 @@ const Contact = () => {
 					<SectionHeading eyebrow='Contact us' title={contact.title} subtitle={contact.subtitle} />
 
 					<ul className='space-y-3'>
-						{details.map((d) => {
-							const Tag = d.href ? "a" : "div";
-							return (
-								<li key={d.label}>
-									<Tag
-										{...(d.href ? { href: d.href, target: d.href.startsWith("http") ? "_blank" : undefined, rel: "noreferrer" } : {})}
-										className='flex items-center gap-x-4 bg-surface rounded-md p-4 border border-transparent hover:border-brand transition-colors'
-									>
-										<span className='w-11 h-11 shrink-0 rounded-full bg-brand-tint text-accent text-xl flex items-center justify-center'>
-											{d.icon}
-										</span>
-										<span>
-											<span className='block text-xs uppercase tracking-wider text-ink-soft'>{d.label}</span>
-											<span className='block font-medium text-ink break-words'>{d.value}</span>
-										</span>
-									</Tag>
-								</li>
-							);
-						})}
+						{details.map((d) => (
+							<li
+								key={d.label}
+								className='flex items-center gap-x-4 bg-surface rounded-md p-4 border border-transparent hover:border-brand transition-colors'
+							>
+								<span className='w-11 h-11 shrink-0 rounded-full bg-brand-tint text-accent text-xl flex items-center justify-center'>
+									{d.icon}
+								</span>
+								<span className='min-w-0'>
+									<span className='block text-xs uppercase tracking-wider text-ink-soft'>{d.label}</span>
+									<span className='flex flex-wrap gap-x-2 font-medium text-ink break-words'>
+										{d.links.map((l, i) => (
+											<React.Fragment key={l.href}>
+												{i > 0 && <span className='text-ink-soft' aria-hidden='true'>/</span>}
+												<a
+													href={l.href}
+													{...(l.href.startsWith("http") ? { target: "_blank", rel: "noreferrer" } : {})}
+													className='hover:text-accent underline-offset-4 hover:underline'
+												>
+													{l.text}
+												</a>
+											</React.Fragment>
+										))}
+									</span>
+								</span>
+							</li>
+						))}
 					</ul>
 
 					<div className='mt-6 flex gap-x-4 text-sm'>

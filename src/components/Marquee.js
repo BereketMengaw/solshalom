@@ -1,5 +1,6 @@
 import React from "react";
 import Mark from "../assets/brand/mark.png";
+import company from "../company";
 
 const items = [
 	"Executive chairs",
@@ -9,7 +10,7 @@ const items = [
 	"Guest seating",
 	"Shelves & cabinets",
 	"Office sofas",
-	"Since 2014",
+	`Since ${company.since}`,
 	"Quote on WhatsApp",
 ];
 

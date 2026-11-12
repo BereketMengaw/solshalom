@@ -1,7 +1,7 @@
 import React from "react";
 import { FaFacebookF, FaInstagram, FaTelegramPlane, FaTiktok } from "react-icons/fa";
 import { Wordmark } from "./Header";
-import company from "../company";
+import company, { telLink } from "../company";
 import { navigation } from "../data";
 
 const socialIcons = {
@@ -22,7 +22,7 @@ const Footer = () => {
 					<Wordmark light />
 					<p className='mt-5 max-w-xs text-sm leading-relaxed'>
 						Importer and distributor of office and commercial furniture in Ethiopia
-						since 2014.
+						since {company.since}.
 					</p>
 				</div>
 
@@ -43,9 +43,14 @@ const Footer = () => {
 					<h3 className='text-white text-lg font-semibold mb-4'>Contact</h3>
 					<ul className='space-y-2 text-sm'>
 						<li>
-							<a href={`tel:${company.phone.replace(/\s/g, "")}`} className='hover:text-brand'>
-								{company.phone}
-							</a>
+							{company.phones.map((p, i) => (
+								<React.Fragment key={p.tel}>
+									{i > 0 && " / "}
+									<a href={telLink(p)} className='hover:text-brand whitespace-nowrap'>
+										{p.display}
+									</a>
+								</React.Fragment>
+							))}
 						</li>
 						<li>
 							<a href={`mailto:${company.email}`} className='hover:text-brand'>

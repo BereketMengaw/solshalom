@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { FaWhatsapp } from "react-icons/fa";
+import { FaWhatsapp, FaTelegramPlane } from "react-icons/fa";
 import { IoIosCall, IoIosMail, IoIosCheckmarkCircle } from "react-icons/io";
 import { getProduct, getCategory, productsIn } from "../products";
-import company, { whatsappLink } from "../company";
+import company, { whatsappLink, telegramLink, telLink } from "../company";
 import ProductCard, { ProductImage, productMessage } from "./ProductCard";
 
 const ProductDetails = () => {
@@ -114,26 +114,37 @@ const ProductDetails = () => {
 						<p className='mt-1 text-sm text-ink-soft'>
 							Ask for price, colours, availability or bulk orders. Mention model <strong>{product.code}</strong>.
 						</p>
-						<div className='mt-4 grid sm:grid-cols-3 gap-3'>
+						<div className='mt-4 grid grid-cols-2 gap-3'>
 							<a
 								href={whatsappLink(`${message} ${window.location.href}`)}
 								target='_blank'
 								rel='noreferrer'
-								className='sm:col-span-3 flex items-center justify-center gap-x-2 bg-accent hover:bg-accent-hover text-white font-display uppercase tracking-wider font-semibold py-3 rounded transition-colors'
+								className='flex items-center justify-center gap-x-2 bg-accent hover:bg-accent-hover text-white font-display uppercase tracking-wider font-semibold py-3 rounded transition-colors'
 							>
-								<FaWhatsapp className='text-xl' /> Ask on WhatsApp
+								<FaWhatsapp className='text-xl' /> WhatsApp
 							</a>
 							<a
-								href={`tel:${company.phone.replace(/\s/g, "")}`}
-								className='sm:col-span-1 flex items-center justify-center gap-x-2 border border-accent text-accent hover:bg-accent hover:text-white py-2.5 rounded text-sm font-medium transition-colors'
+								href={telegramLink()}
+								target='_blank'
+								rel='noreferrer'
+								className='flex items-center justify-center gap-x-2 bg-accent hover:bg-accent-hover text-white font-display uppercase tracking-wider font-semibold py-3 rounded transition-colors'
 							>
-								<IoIosCall className='text-lg' /> Call
+								<FaTelegramPlane className='text-xl' /> Telegram
 							</a>
+							{company.phones.map((p) => (
+								<a
+									key={p.tel}
+									href={telLink(p)}
+									className='flex items-center justify-center gap-x-2 border border-accent text-accent hover:bg-accent hover:text-white py-2.5 rounded text-sm font-medium transition-colors whitespace-nowrap'
+								>
+									<IoIosCall className='text-lg' /> Call {p.display}
+								</a>
+							))}
 							<a
 								href={`mailto:${company.email}?subject=${encodeURIComponent(`Enquiry: ${product.name} (${product.code})`)}&body=${encodeURIComponent(message)}`}
-								className='sm:col-span-2 flex items-center justify-center gap-x-2 border border-accent text-accent hover:bg-accent hover:text-white py-2.5 rounded text-sm font-medium transition-colors'
+								className='col-span-2 flex items-center justify-center gap-x-2 border border-accent text-accent hover:bg-accent hover:text-white py-2.5 rounded text-sm font-medium transition-colors break-all'
 							>
-								<IoIosMail className='text-lg' /> Email us
+								<IoIosMail className='text-lg shrink-0' /> Email {company.email}
 							</a>
 						</div>
 					</div>

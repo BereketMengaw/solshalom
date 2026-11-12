@@ -7,11 +7,11 @@ import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
 
 const tiles = [
-	{ id: "executive-chairs", image: "/products/q8-1.jpg", big: true },
-	{ id: "conference-tables", image: "/products/yc48-1.jpg" },
-	{ id: "managerial-desks", image: "/products/mt-240-1.jpg" },
-	{ id: "guest-chairs", image: "/products/840c-1.jpg" },
-	{ id: "shelves-cabinets", image: "/products/a3-1.jpg" },
+	{ id: "office-chairs", image: "/products/q8-1.jpg", big: true },
+	{ id: "conference", image: "/products/yc48-1.jpg" },
+	{ id: "desks-tables", image: "/products/mt-240-1.jpg" },
+	{ id: "reception-waiting", image: "/products/840c-1.jpg" },
+	{ id: "storage", image: "/products/a3-1.jpg" },
 ];
 
 // Bento grid of the main categories, linking into the filtered catalog.

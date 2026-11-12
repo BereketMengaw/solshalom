@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { IoIosArrowRoundForward, IoIosSearch } from "react-icons/io";
-import { products, categories, families, getCategory } from "../products";
+import { products, categories, getCategory } from "../products";
 import ProductCard from "./ProductCard";
 import SectionHeading from "./SectionHeading";
 
@@ -27,20 +27,16 @@ export const CategoryFilter = ({ active, onChange }) => (
 			<Chip active={!active} onClick={() => onChange(null)} count={products.length}>
 				All
 			</Chip>
-			{families.map((family) =>
-				categories
-					.filter((c) => c.family === family)
-					.map((c) => (
-						<Chip
-							key={c.id}
-							active={active === c.id}
-							onClick={() => onChange(c.id)}
-							count={products.filter((p) => p.category === c.id).length}
-						>
-							{c.name}
-						</Chip>
-					))
-			)}
+			{categories.map((c) => (
+				<Chip
+					key={c.id}
+					active={active === c.id}
+					onClick={() => onChange(c.id)}
+					count={products.filter((p) => p.category === c.id).length}
+				>
+					{c.name}
+				</Chip>
+			))}
 		</div>
 	</div>
 );
@@ -103,8 +99,8 @@ const Catalog = () => {
 export const CatalogPage = () => {
 	const [params, setParams] = useSearchParams();
 	const [query, setQuery] = useState("");
-	const active = params.get("category");
-	const category = active && getCategory(active);
+	const category = getCategory(params.get("category"));
+	const active = category ? category.id : null;
 
 	const list = useMemo(() => {
 		const q = query.trim().toLowerCase();

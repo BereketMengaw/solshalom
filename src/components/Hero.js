@@ -3,76 +3,93 @@ import { Link } from "react-router-dom";
 import { FaWhatsapp } from "react-icons/fa";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { hero, stats } from "../data";
-import { getProduct } from "../products";
 import { whatsappLink } from "../company";
-import Blob from "./Blob";
 import CountUp from "./CountUp";
-import Mark from "../assets/brand/mark.png";
+
+// Soft teal glow from the top plus a faint architectural grid that fades out toward the edges.
+const backdrop = {
+	backgroundImage: [
+		"radial-gradient(70% 55% at 50% 0%, rgb(var(--c-tint)) 0%, transparent 75%)",
+		"linear-gradient(to right, rgb(var(--c-line) / 0.55) 1px, transparent 1px)",
+		"linear-gradient(to bottom, rgb(var(--c-line) / 0.55) 1px, transparent 1px)",
+	].join(","),
+	backgroundSize: "100% 100%, 96px 96px, 96px 96px",
+	backgroundPosition: "center top",
+	WebkitMaskImage: "radial-gradient(80% 70% at 50% 30%, #000 40%, transparent 100%)",
+	maskImage: "radial-gradient(80% 70% at 50% 30%, #000 40%, transparent 100%)",
+};
 
 const Hero = () => {
-	const featured = getProduct(hero.featured);
+	const [lead, ...rest] = hero.title.split(" ");
+
 	return (
 		<section id='home' className='relative pt-20 bg-surface overflow-hidden'>
-			<div className='container mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-10 lg:gap-6 py-10 lg:py-16'>
-				<div>
-					<p className='flex items-center gap-x-3 font-display text-sm font-semibold uppercase tracking-[0.2em] text-brand'>
-						<span className='w-8 h-px bg-current' />
-						{hero.eyebrow}
-					</p>
-					<h1 className='mt-5 text-[44px] sm:text-6xl xl:text-7xl leading-[0.95] font-semibold text-ink'>
-						{hero.title}
-					</h1>
-					<p className='mt-6 max-w-lg text-lg text-ink-soft'>{hero.subtitle}</p>
-					<div className='mt-8 flex flex-col sm:flex-row gap-3'>
-						<Link
-							to='/products'
-							className='inline-flex items-center justify-center gap-x-2 bg-accent hover:bg-accent-hover text-white font-display uppercase tracking-wider font-semibold px-7 py-3.5 rounded transition-colors'
-						>
-							Browse the catalog <IoIosArrowRoundForward className='text-2xl' />
-						</Link>
-						<a
-							href={whatsappLink("Hello Sol Shalom, I'd like a quote for office furniture.")}
-							target='_blank'
-							rel='noreferrer'
-							className='inline-flex items-center justify-center gap-x-2 border border-ink/20 hover:border-accent hover:text-accent text-ink font-display uppercase tracking-wider font-semibold px-7 py-3.5 rounded transition-colors'
-						>
-							<FaWhatsapp className='text-xl' /> Request a quote
-						</a>
-					</div>
+			<div aria-hidden='true' className='pointer-events-none absolute inset-0' style={backdrop} />
 
-					<dl className='mt-12 grid grid-cols-3 max-w-lg border-t border-line pt-6'>
-						{stats.map((s) => (
-							<div key={s.label} className='flex flex-col'>
-								<dt className='order-2 text-xs sm:text-sm text-ink-soft mt-1'>{s.label}</dt>
-								<dd className='order-1 font-display text-3xl sm:text-4xl font-semibold text-ink -mt-0.5'>
-									<CountUp value={s.value} />
-								</dd>
-							</div>
-						))}
-					</dl>
+			<div className='relative container mx-auto flex flex-col items-center text-center pt-16 pb-14 sm:pt-24 sm:pb-20'>
+				<p className='inline-flex items-center gap-x-3 rounded-full border border-line bg-surface/80 backdrop-blur px-4 py-1.5 font-display text-xs sm:text-sm font-semibold uppercase tracking-[0.25em] text-accent'>
+					<span className='w-1.5 h-1.5 rounded-full bg-brand' />
+					{hero.eyebrow}
+				</p>
+
+				<h1 className='mt-8 text-[54px] sm:text-[88px] xl:text-[120px] leading-[0.86] font-semibold tracking-tight text-ink'>
+					{lead}
+					<span className='block text-accent'>{rest.join(" ")}</span>
+				</h1>
+
+				<span aria-hidden='true' className='mt-8 w-16 h-[2px] bg-brand' />
+
+				<p className='mt-8 max-w-2xl text-xl sm:text-2xl font-medium leading-snug text-ink'>{hero.tagline}</p>
+				<p className='mt-4 max-w-2xl text-base sm:text-lg leading-relaxed text-ink-soft'>{hero.subtitle}</p>
+
+				<div className='mt-10 flex flex-col sm:flex-row gap-3 w-full sm:w-auto'>
+					<Link
+						to='/products'
+						className='inline-flex items-center justify-center gap-x-2 bg-accent hover:bg-accent-hover text-white font-display uppercase tracking-wider font-semibold px-7 py-3.5 rounded transition-colors'
+					>
+						Browse the catalog <IoIosArrowRoundForward className='text-2xl' />
+					</Link>
+					<a
+						href={whatsappLink("Hello Sol Shalom, I'd like a quote for office furniture.")}
+						target='_blank'
+						rel='noreferrer'
+						className='inline-flex items-center justify-center gap-x-2 border border-ink/20 hover:border-accent hover:text-accent text-ink font-display uppercase tracking-wider font-semibold px-7 py-3.5 rounded transition-colors'
+					>
+						<FaWhatsapp className='text-xl' /> Request a quote
+					</a>
 				</div>
 
-				<div className='relative mx-auto w-full max-w-[520px] aspect-[600/560]'>
-					<Blob className='absolute inset-0 w-full h-full text-brand-aqua lg:animate-[float_9s_ease-in-out_infinite] motion-reduce:animate-none' />
-					<Blob className='absolute right-0 -top-4 w-20 h-20 lg:-right-6 lg:w-24 lg:h-24 text-brand/30 lg:animate-[float_7s_ease-in-out_infinite_reverse] motion-reduce:animate-none' />
-					<img src={Mark} alt='' className='absolute left-2 top-6 w-14 opacity-80 lg:animate-[float_6s_ease-in-out_infinite] motion-reduce:animate-none' />
-					<img
-						src={hero.image}
-						alt={featured ? `${featured.name}, model ${featured.code}` : ""}
-						className='absolute left-1/2 bottom-[6%] -translate-x-1/2 h-[92%] object-contain mix-blend-multiply'
-					/>
-					{featured && (
-						<Link
-							to={`/product/${featured.id}`}
-							className='absolute right-0 sm:-right-2 bottom-[10%] bg-surface rounded-md shadow-[0_8px_24px_rgba(26,43,44,0.12)] px-4 py-3 hover:shadow-[0_8px_28px_rgba(26,43,44,0.2)] transition-shadow'
+				<dl className='mt-16 w-full max-w-3xl grid grid-cols-3 divide-x divide-line border-y border-line bg-surface/70 backdrop-blur'>
+					{stats.map((s) => (
+						<div key={s.label} className='flex flex-col items-center py-5 sm:py-6 px-2'>
+							<dt className='order-2 mt-1 text-[11px] sm:text-xs uppercase tracking-[0.18em] text-ink-soft'>{s.label}</dt>
+							<dd className='order-1 font-display text-3xl sm:text-5xl font-semibold text-ink'>
+								<CountUp value={s.value} />
+							</dd>
+						</div>
+					))}
+				</dl>
+			</div>
+
+			{/* Services */}
+			<div className='relative bg-deep text-white'>
+				<ul className='container mx-auto grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5'>
+					{hero.services.map((service, i) => (
+						<li
+							key={service}
+							className={`flex items-baseline gap-x-3 py-5 lg:py-7 lg:px-6 lg:first:pl-0 lg:border-l lg:first:border-l-0 border-white/10 ${
+								i === hero.services.length - 1 ? "col-span-2 sm:col-span-1" : ""
+							}`}
 						>
-							<span className='block font-display text-xs font-semibold uppercase tracking-widest text-brand'>
-								Model {featured.code}
+							<span className='font-display text-sm font-semibold text-brand-aqua'>
+								{String(i + 1).padStart(2, "0")}
 							</span>
-							<span className='block text-sm font-semibold text-ink'>{featured.name}</span>
-						</Link>
-					)}
-				</div>
+							<span className='font-display text-sm sm:text-base font-semibold uppercase tracking-[0.15em] leading-tight'>
+								{service}
+							</span>
+						</li>
+					))}
+				</ul>
 			</div>
 		</section>
 	);

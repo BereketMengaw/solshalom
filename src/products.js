@@ -2,22 +2,33 @@
 // Source: client spreadsheets (web3.xlsx, web site.xlsx). Photos live in /public/products/<id>-<n>.jpg.
 // To add a product: drop its photos in public/products and add an entry below.
 
-export const families = ["Seating", "Desks & Tables", "Storage", "Lounge"];
-
+// The 7 main categories, as supplied by the company.
 export const categories = [
-	{ id: "executive-chairs", name: "Executive Chairs", family: "Seating", blurb: "Ergonomic and leather chairs for managers and executives." },
-	{ id: "high-back-chairs", name: "High-Back Chairs", family: "Seating", blurb: "Full-support mesh task chairs and teller stools." },
-	{ id: "medium-back-chairs", name: "Medium-Back Chairs", family: "Seating", blurb: "Everyday swivel chairs for staff and secretaries." },
-	{ id: "guest-chairs", name: "Guest & Visitor Chairs", family: "Seating", blurb: "Visitor chairs, beam seating and banquet chairs." },
-	{ id: "auditorium-chairs", name: "Auditorium Chairs", family: "Seating", blurb: "Folding public seating for halls and cinemas." },
-	{ id: "managerial-desks", name: "Managerial Desks", family: "Desks & Tables", blurb: "Executive desks with side returns and locking drawers." },
-	{ id: "office-desks", name: "Office & Computer Desks", family: "Desks & Tables", blurb: "Single-pedestal desks and computer tables." },
-	{ id: "conference-tables", name: "Conference Tables", family: "Desks & Tables", blurb: "Boardroom tables from 2.4 m to 6 m." },
-	{ id: "workstations", name: "Workstations", family: "Desks & Tables", blurb: "Four-person cluster desks with partitions." },
-	{ id: "shelves-cabinets", name: "Shelves & Cabinets", family: "Storage", blurb: "Bookshelves, filing cabinets and steel shelving." },
-	{ id: "office-sofas", name: "Office Sofas", family: "Lounge", blurb: "Leather sofa sets for receptions and offices." },
-	{ id: "coffee-tables", name: "Coffee Tables", family: "Lounge", blurb: "Low tables for waiting areas and lounges." },
+	{ id: "office-chairs", name: "Office Chairs", blurb: "Ergonomic and executive seating designed for everyday performance." },
+	{ id: "desks-tables", name: "Desks & Tables", blurb: "Professional desks, executive tables and meeting solutions." },
+	{ id: "workstations", name: "Workstations", blurb: "Efficient workspace systems for modern teams." },
+	{ id: "storage", name: "Storage Solutions", blurb: "Filing cabinets, cupboards and office storage." },
+	{ id: "reception-waiting", name: "Reception & Waiting", blurb: "Create a professional first impression." },
+	{ id: "conference", name: "Conference Furniture", blurb: "Tables and seating for meetings and collaboration." },
+	{ id: "sofas", name: "Sofa", blurb: "Leather sofa sets for offices and reception areas." },
 ];
+
+// Product entries below still use the original detailed types; this maps each type to its main category.
+// Old /products?category=<type> links keep working through the same map.
+export const legacyCategory = {
+	"executive-chairs": "office-chairs",
+	"high-back-chairs": "office-chairs",
+	"medium-back-chairs": "office-chairs",
+	"managerial-desks": "desks-tables",
+	"office-desks": "desks-tables",
+	workstations: "workstations",
+	"shelves-cabinets": "storage",
+	"guest-chairs": "reception-waiting",
+	"coffee-tables": "reception-waiting",
+	"conference-tables": "conference",
+	"auditorium-chairs": "conference",
+	"office-sofas": "sofas",
+};
 
 // Shared feature sets
 const ERGONOMIC = [
@@ -328,9 +339,11 @@ const raw = [
 
 export const products = raw.map(({ photos, ...p }) => ({
 	...p,
+	type: p.category,
+	category: legacyCategory[p.category] || p.category,
 	images: Array.from({ length: photos }, (_, i) => `/products/${p.id}-${i + 1}.jpg`),
 }));
 
 export const getProduct = (id) => products.find((p) => p.id === id);
-export const getCategory = (id) => categories.find((c) => c.id === id);
+export const getCategory = (id) => categories.find((c) => c.id === (legacyCategory[id] || id));
 export const productsIn = (categoryId) => products.filter((p) => p.category === categoryId);

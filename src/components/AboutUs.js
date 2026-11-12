@@ -26,17 +26,15 @@ const AboutUs = () => (
 
 			<div className='order-1 lg:order-2'>
 				<SectionHeading eyebrow='About us' title={about.title} />
-				<p className='-mt-4 text-lg text-ink'>{about.intro}</p>
-				<p className='mt-4 text-ink-soft'>{about.body}</p>
-
-				<div className='mt-8 grid sm:grid-cols-2 gap-4'>
-					{[about.vision, about.mission].map((item, i) => (
-						<Reveal key={item.title} delay={i * 120} className='bg-surface rounded-md p-5 border-t-2 border-brand'>
-							<h3 className='text-lg font-semibold text-ink'>{item.title}</h3>
-							<p className='mt-2 text-sm text-ink-soft'>{item.text}</p>
-						</Reveal>
+				<ul className='-mt-2 space-y-1 text-xl lg:text-2xl font-medium text-ink'>
+					{about.lines.map((line) => (
+						<li key={line}>{line}</li>
 					))}
-				</div>
+				</ul>
+				<p className='mt-6 text-lg text-ink-soft'>{about.body}</p>
+				<p className='mt-8 border-l-2 border-brand pl-4 font-display text-xl font-semibold uppercase tracking-wider text-ink'>
+					{about.closing}
+				</p>
 			</div>
 		</div>
 	</section>

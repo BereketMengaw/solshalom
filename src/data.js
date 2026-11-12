@@ -12,11 +12,11 @@ export const navigation = [
 
 export const hero = {
 	eyebrow: `Office furniture · Since ${company.since}`,
-	title: "Office furniture built for long working days",
+	title: "Creating Better Workspaces.",
+	tagline: "Quality Office Furniture Designed for Comfort, Productivity & Performance.",
 	subtitle:
-		"Ergonomic chairs, managerial desks, conference tables and storage. Imported, checked and supplied by Sol Shalom Trading.",
-	image: "/products/q8-1.jpg",
-	featured: "q8",
+		"From manufacturing and importing to delivery and installation, Sol Shalom provides complete office furniture solutions for businesses, NGOs, government institutions and organizations across Ethiopia.",
+	services: ["Manufacturing", "Importing", "Custom Solutions", "Delivery & Installation", "After-Sales Support"],
 };
 
 export const stats = [
@@ -26,47 +26,25 @@ export const stats = [
 ];
 
 export const about = {
-	title: "Peace of mind for every workplace",
-	intro:
-		"Sol Shalom Trading PLC is one of Ethiopia's leading importers and distributors of high-quality commercial and residential furniture. Since 2014 we have furnished banks, offices, airports, universities, NGOs and government offices, as well as hotels, stores and showrooms.",
+	title: "Furniture Is More Than What You See.",
+	lines: ["It is where people work.", "Where ideas become decisions.", "Where teams build businesses."],
 	body:
-		"Our close relationships with European, Asian and American suppliers let us offer executive desks, ergonomic chairs, workstations, meeting-room furniture, reception counters, sofa sets and storage in MDF, melamine, steel and more, from a single desk to a full floor. Shalom means peace, and that is what we want every workplace to feel.",
-	vision: {
-		title: "Our vision",
-		text: "To be the office furniture supplier that businesses trust first: known for comfort, durability and honest service.",
-	},
-	mission: {
-		title: "Our mission",
-		text: "To make well-built, ergonomic office furniture easy to choose and fairly priced, and to stand behind every piece we supply.",
-	},
+		"At Sol Shalom, we believe the right furniture can create a better working environment—more comfortable, more productive and more professional.",
+	closing: "We create furniture for the way Ethiopia works.",
 	image: "/products/yc48-1.jpg",
 	imageAlt: "Conference table with mesh chairs in a meeting room",
 };
 
 export const whyUs = {
-	title: "Why choose Sol Shalom",
-	subtitle: "What customers get when they furnish their office with us.",
+	eyebrow: "Why Sol Shalom",
+	title: "Why Organizations Choose Sol Shalom",
 	items: [
-		{
-			icon: "quality",
-			title: "Built to last",
-			text: "High-pressure laminate desks, steel frames and tested chair mechanisms. Every model is chosen for daily use.",
-		},
-		{
-			icon: "ergonomic",
-			title: "Ergonomics you can feel",
-			text: "Adjustable lumbar support, synchronised tilt and breathable mesh help people stay comfortable through the day.",
-		},
-		{
-			icon: "range",
-			title: "One supplier, whole office",
-			text: "Executive and staff chairs, desks, conference tables, workstations, storage and sofas from a single order.",
-		},
-		{
-			icon: "service",
-			title: "Straight answers, fast",
-			text: "Send a model code on WhatsApp or by phone and get price and availability, plus help choosing the right piece.",
-		},
+		{ icon: "quality", title: "Quality", text: "Furniture designed and selected for demanding professional environments." },
+		{ icon: "capacity", title: "Capacity", text: "Prepared to serve both individual customers and large-volume institutional requirements." },
+		{ icon: "customization", title: "Customization", text: "Solutions adapted to your space, requirements and organization." },
+		{ icon: "reliability", title: "Reliability", text: "Professional supply, delivery and installation." },
+		{ icon: "value", title: "Value", text: "Competitive solutions without compromising functionality and quality." },
+		{ icon: "support", title: "After-Sales Support", text: "Our relationship continues after delivery." },
 	],
 };
 
