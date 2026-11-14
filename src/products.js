@@ -337,12 +337,15 @@ const raw = [
 		features: ["MDF construction", "Magazine holder"], specs: [["Size", "60 × 60 × 45 cm"]] },
 ];
 
-export const products = raw.map(({ photos, ...p }) => ({
-	...p,
-	type: p.category,
-	category: legacyCategory[p.category] || p.category,
-	images: Array.from({ length: photos }, (_, i) => `/products/${p.id}-${i + 1}.jpg`),
-}));
+// Products without photos (7518, CFT 120, CFT 60 for now) stay hidden until their photos are added.
+export const products = raw
+	.filter((p) => p.photos > 0)
+	.map(({ photos, ...p }) => ({
+		...p,
+		type: p.category,
+		category: legacyCategory[p.category] || p.category,
+		images: Array.from({ length: photos }, (_, i) => `/products/${p.id}-${i + 1}.jpg`),
+	}));
 
 export const getProduct = (id) => products.find((p) => p.id === id);
 export const getCategory = (id) => categories.find((c) => c.id === (legacyCategory[id] || id));

@@ -73,18 +73,11 @@ const Hero = () => {
 
 			{/* Services */}
 			<div className='relative bg-deep text-white'>
-				<ul className='container mx-auto grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5'>
+				<ul className='container mx-auto flex flex-wrap items-center justify-center gap-y-3 py-5 lg:py-7'>
 					{hero.services.map((service, i) => (
-						<li
-							key={service}
-							className={`flex items-baseline gap-x-3 py-5 lg:py-7 lg:px-6 lg:first:pl-0 lg:border-l lg:first:border-l-0 border-white/10 ${
-								i === hero.services.length - 1 ? "col-span-2 sm:col-span-1" : ""
-							}`}
-						>
-							<span className='font-display text-sm font-semibold text-brand-aqua'>
-								{String(i + 1).padStart(2, "0")}
-							</span>
-							<span className='font-display text-sm sm:text-base font-semibold uppercase tracking-[0.15em] leading-tight'>
+						<li key={service} className='flex items-center'>
+							{i > 0 && <span aria-hidden='true' className='mx-4 sm:mx-6 h-4 w-px bg-brand-aqua/60' />}
+							<span className='font-display text-xs sm:text-base font-semibold uppercase tracking-[0.15em] leading-tight whitespace-nowrap'>
 								{service}
 							</span>
 						</li>
